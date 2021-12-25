@@ -17,11 +17,7 @@ include "functions.php";
             <?php
             singUp();
             message();
-            // echo $_SESSION['email'];
-            // echo $_SESSION['fname'];
-            // echo $_SESSION['lname'];
-            // echo $_SESSION['passwd'];
-            // echo $_SESSION['message'];
+            // 
             ?>
             <div class="panel-body">
                 <form id="signupform" class="form-horizontal" role="form" method="post" action="signUp.php">
@@ -69,7 +65,7 @@ include "functions.php";
                         <div class="col-md-12 control">
                             <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
                                 You are already have an account?!
-                                <a href="signUp.php">
+                                <a href="login.php">
                                     Sign In Here
                                 </a>
                             </div>

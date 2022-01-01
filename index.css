@@ -9,12 +9,10 @@
 #cards {
   padding: 10px;
 }
-/* #covid{
-    display: inline;
-    
-   
-   max-width:  200px;
-} */
+#icon {
+  height: 32px;
+  width: 32px;
+}
 #product {
   padding-right: 50px;
 }

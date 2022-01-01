@@ -18,6 +18,8 @@
 </head>
 
 <body>
+  <!----------------         carousel                     --------->
+
 
   <?php
   session_start();
@@ -50,48 +52,59 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <!-- CARDS CATALOG-->
-  <div class="row" id="cards">
-    <div class="col-sm-4">
-      <div class="card border border-warning">
-        <div class="card-body">
 
-          <img src="dettol.jpg" id="covid" class="d-block w-100" alt="...">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-success">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4" id="cards">
-      <div class="card border border-warning">
-        <div class="card-body">
 
-          <!-- <h5 class="card-title">Special title treatment</h5> -->
-          <img src="dettol.jpg" id="covid" class="d-block w-100" alt="...">
-          <h5>dettol</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-success">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4" id="cards">
-      <div class="card border border-warning">
-        <div class="card-body">
 
-          <img src="dettol.jpg" id="covid" class="d-block w-100" alt="...">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-success">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!----------------       end of carousel                     --------->
+
+  <!-- categories-->
   <div class="catogary">
     <h2 class="product" style="background-color: rgb(104, 230, 110); height: 60px;">Categories of
       Products</h2>
   </div>
-  <!----------------         CATAGORIES OF PRODUCTS                     --------->
+  <div class="row" id="cards">
+    <div class="col-sm-4">
+      <div class="card border border-warning">
+        <div class="card-body">
+          <img src="images/macine.png" id="icon" class="d-block w-100" alt="...">
+          <h5 class="card-title">Medicine</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-success">Go to Medicine</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card border border-warning">
+        <div class="card-body">
+          <img src="images/macine.png" id="icon" class="d-block w-100" alt="...">
+          <h5 class="card-title">self care </h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-success">Go self care </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card border border-warning">
+        <div class="card-body">
+
+          <img src="images/macine.png" id="icon" class="d-block w-100" alt="...">
+          <h5 class="card-title">machines</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-success">Go machines</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of categories-->
+
+
+  <!----------------         products might you like                     --------->
+
+  <div class="catogary">
+    <h2 style="background-color: rgb(104, 230, 110); height: 60px;" id="heading">products might you like<img src="discount.png">
+    </h2>
+
+  </div>
   <div class="row">
     <div class="col-sm-2" id="cards">
       <div class="card border border-warning">
@@ -160,64 +173,10 @@
       </div>
     </div>
   </div>
-  <div class="catogary">
 
 
-    <h2 style="background-color: rgb(104, 230, 110); height: 60px;" id="heading">Product Offers<img src="discount.png">
-    </h2>
+  <!----------------        end of products might you like                     --------->
 
-  </div>
-  <!-- ---------------------  this div  for PRODUCT OFFERS ----------------------   -->
-  <div class="row">
-    <div class="card" style="width:10rem; height: 10rem;">
-      <!-- <img src=" https://cms-contents.pharmeasy.in/offer/7412a494160-11.jpg?dim=60x0&dpr=1&q=100" class="card-img-top" alt="..."> -->
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        <a href="#" class="btn btn-success  ">Go </a>
-      </div>
-    </div>
-    <div class="card" style="width: 10rem;">
-      <img src=" https://cms-contents.pharmeasy.in/offer/7412a494160-11.jpg?dim=60x0&dpr=1&q=100" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        <a href="#" class="btn btn-success  ">Go </a>
-      </div>
-    </div>
-    <div class="card" style="width: 10rem;">
-      <img src=" https://cms-contents.pharmeasy.in/offer/7412a494160-11.jpg?dim=60x0&dpr=1&q=100" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        <a href="#" class="btn btn-success  ">Go </a>
-      </div>
-    </div>
-    <div class="card" style="width: 10rem;">
-      <img src=" https://cms-contents.pharmeasy.in/offer/7412a494160-11.jpg?dim=60x0&dpr=1&q=100" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        <a href="#" class="btn btn-success  ">Go </a>
-      </div>
-    </div>
-    <div class="card" style="width: 10rem;">
-      <img src=" https://cms-contents.pharmeasy.in/offer/7412a494160-11.jpg?dim=60x0&dpr=1&q=100" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        <a href="#" class="btn btn-success  ">Go </a>
-      </div>
-    </div>
-    <div class="card" style="width: 10rem;">
-      <img src=" https://cms-contents.pharmeasy.in/offer/7412a494160-11.jpg?dim=60x0&dpr=1&q=100" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-        <a href="#" class="btn btn-success  ">Go </a>
-      </div>
-    </div>
-  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

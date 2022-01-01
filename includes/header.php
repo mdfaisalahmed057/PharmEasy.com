@@ -1,3 +1,7 @@
+<?php
+session_start();
+include "functions.php";
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container-fluid">
         <img src="images/PharmEasy.png" id="image">
@@ -31,13 +35,13 @@
             if (!isset($_SESSION['user_id'])) {
                 echo "<a class='nav-link' href='login.php' style='color: white; font-size:bold;'> Sign In</a>'";
             }
-
+            $data = search();
             ?>
 
 
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+            <form class="d-flex" action="search.php" method="GET">
+                <input class="form-control me-2" type="search" placeholder="Search" name="search_text">
+                <button class="btn btn-outline-light" type="submit" value="go" name="search"><i class="fas fa-search"></i></button>
             </form>
 
         </div>

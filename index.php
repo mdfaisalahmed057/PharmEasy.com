@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+  <title>
+    PharmEasy
+  </title>
+  <link rel="icon" href="images/logo.png" type="image/icon type">
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,25 +22,23 @@
   <?php
   session_start();
   include "includes/header.php";
-  echo $_SESSION['user_id'];
-  
   ?>
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src=" https://cms-contents.pharmeasy.in/banner/80bea445ee2-Ease_Dweb.jpg?dim=1440x0&dpr=1&q=100" class="d-block w-100" alt="...">
+        <img src="images/carousel1.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://cms-contents.pharmeasy.in/banner/bda89250126-PL_Diab_Sli_Dweb.jpg?dim=1440x0&dpr=1&q=100" class="d-block w-100" alt="...">
+        <img src="images/carousel2.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://cms-contents.pharmeasy.in/banner/afc7a916c23-02.jpg?dim=1440x0&dpr=1&q=100" class="d-block w-100" alt="...">
+        <img src="images/carousel3.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src=" https://cms-contents.pharmeasy.in/banner/0ff77f182b8-UPDATEDKBCDWEB.jpg?dim=1440x0&dpr=1&q=100" class="d-block w-100" alt="...">
+        <img src=" images/carousel4.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src=" https://cms-contents.pharmeasy.in/banner/2faf6dffb96-YES2021PLUSDWEB.jpg?dim=1440x0&dpr=1&q=100" class="d-block w-100" alt="...">
+        <img src=" images/carousel5.jpg" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

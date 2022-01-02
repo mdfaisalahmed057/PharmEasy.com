@@ -9,6 +9,8 @@ include "includes/head.php"
   <?php
   session_start();
   include "includes/header.php";
+  // $_SESSION['user_id']=1;
+  echo $_SESSION['user_id'];
   ?>
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">

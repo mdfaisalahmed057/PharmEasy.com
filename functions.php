@@ -12,10 +12,14 @@ function query($query)
     $connection =
         mysqli_connect("localhost", "root", "", "PharmEasy");
     $run = mysqli_query($connection, $query);
-    while ($row = $run->fetch_assoc()) {
-        $data[] = $row;
+    if ($run) {
+        while ($row = $run->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    } else {
+        return 0;
     }
-    return $data;
 }
 function insert($query)
 {
@@ -31,15 +35,18 @@ function login()
 {
     if (isset($_POST['login'])) {
 
-        $username = $_POST['username'];
+        $userEmail = $_POST['userEmail'];
         $password = $_POST['password'];
-        $query = "SELECT  email , user_id , user_password FROM user WHERE email=$username ";
+        $query = "SELECT  email , user_id , user_password FROM user WHERE email= '$userEmail' ";
         $data = query($query);
-        if ($data['password'] == $password and $data['phone_number'] == $username) {
-            $_SESSION['user_id'] = $data['user_id'];
-            redirect("index.php");
-        } elseif ($data['password'] == $password and $data['email'] == $username) {
-            $_SESSION['user_id'] = $data['user_id'];
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+        if ($data == 0) {
+            $_SESSION['message'] = "loginErr";
+            redirect("login.php");
+        } elseif ($password == $data[0]['user_password'] and  $userEmail == $data[0]['email']) {
+            $_SESSION['user_id'] = $data[0]['user_id'];
             redirect("index.php");
         } else {
             $_SESSION['message'] = "loginErr";
@@ -128,4 +135,13 @@ function product_details()
     if (isset($_GET['product_id'])) {
         echo "hi";
     }
+}
+function total_price($data)
+{
+    $sum = 0;
+    $num = sizeof($data);
+    for ($i = 0; $i < $num; $i++) {
+        $sum += $data[$i]['item_price'];
+    }
+    return $sum;
 }

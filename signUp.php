@@ -47,6 +47,12 @@ include "functions.php";
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="address" class="col-md-3 control-label">Address</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="address" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Password</label>
                         <div class="col-md-9">
                             <input type="password" class="form-control" name="passwd" placeholder="Password">
@@ -56,7 +62,7 @@ include "functions.php";
                         <b> Password must contain the following:</b>
                         <ul>
                             <li>at least 1 number and 1 letter</li>
-                            <li>Must be 8-12 characters</li>
+                            <li>Must be 8-30 characters</li>
                         </ul>
                     </div>
 

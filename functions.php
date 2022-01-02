@@ -61,11 +61,12 @@ function singUp()
         $email  = $_POST['email'];
         $fname  = $_POST['Fname'];
         $lname = $_POST['Lname'];
+        $address = $_POST['address'];
         $passwd = $_POST['passwd'];
         if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
             $_SESSION['message'] = "signUpErr";
             redirect("signUp.php");
-        } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $passwd)) {
+        } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,30}$/', $passwd)) {
             $_SESSION['message'] = "signUpErr";
             redirect("signUp.php");
         }
@@ -78,7 +79,7 @@ function singUp()
                 redirect("signUp.php");
             }
         }
-        $query = "INSERT INTO user (email ,user_fname ,user_lname ,user_password ) VALUES('$email', '$fname' ,'$lname' ,'$passwd')";
+        $query = "INSERT INTO user (email ,user_fname ,user_lname , user_address,user_password ) VALUES('$email', '$fname' ,'$lname','$address' ,'$passwd')";
         $queryStatus = insert($query);
         $query = "SELECT user_id FROM user WHERE email='$email' ";
         $data = query($query);

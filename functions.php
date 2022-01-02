@@ -117,6 +117,9 @@ function search()
 {
     if (isset($_GET['search'])) {
         $search_text = $_GET['search_text'];
+        if ($search_text == "") {
+            return;
+        }
         $query = "SELECT item_brand, item_title ,item_id ,item_description ,item_image FROM item WHERE item_tags LIKE '%$search_text%'";
         $data = query($query);
         return $data;

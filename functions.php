@@ -39,9 +39,6 @@ function login()
         $password = $_POST['password'];
         $query = "SELECT  email , user_id , user_password FROM user WHERE email= '$userEmail' ";
         $data = query($query);
-        echo '<pre>';
-        print_r($data);
-        echo '</pre>';
         if ($data == 0) {
             $_SESSION['message'] = "loginErr";
             redirect("login.php");
@@ -145,4 +142,24 @@ function total_price($data)
         $sum += $data[$i]['item_price'];
     }
     return $sum;
+}
+function admin_login()
+{
+    if (isset($_POST['adminLogin'])) {
+
+        $adminEmail = $_POST['adminEmail'];
+        $password = $_POST['adminPassword'];
+        $query = "SELECT  admin_email , admin_id , admin_password FROM admin WHERE admin_email= '$adminEmail' ";
+        $data = query($query);
+        if ($data == 0) {
+            $_SESSION['message'] = "loginErr";
+            redirect("adminLogin.php");
+        } elseif ($password == $data[0]['admin_password'] and  $adminEmail == $data[0]['admin_email']) {
+            $_SESSION['admin_id'] = $data[0]['admin_id'];
+            redirect("index.php");
+        } else {
+            $_SESSION['message'] = "loginErr";
+            redirect("adminLogin.php");
+        }
+    }
 }

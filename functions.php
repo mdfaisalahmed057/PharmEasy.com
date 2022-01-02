@@ -112,14 +112,20 @@ function search()
 {
     if (isset($_GET['search'])) {
         $search_text = $_GET['search_text'];
-        $query = "SELECT item_title ,item_id ,item_content ,item_image FROM item WHERE item_tags LIKE '%$search_text%'";
+        $query = "SELECT item_brand, item_title ,item_id ,item_description ,item_image FROM item WHERE item_tags LIKE '%$search_text%'";
         $data = query($query);
         return $data;
     }
 }
-function all_items()
+function all_products()
 {
     $query = "SELECT * FROM item ORDER BY RAND()";
     $data = query($query);
     return $data;
+}
+function product_details()
+{
+    if (isset($_GET['product_id'])) {
+        echo "hi";
+    }
 }

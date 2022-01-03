@@ -29,7 +29,9 @@ include "includes/functions.php";
             </ul>
             <?php
             if (!isset($_SESSION['user_id'])) {
-                echo "<a class='nav-link' href='login.php' style='color: white; font-size:bold;'> Sign In</a>'";
+                echo "<a class='nav-link' href='login.php' style='color: white; font-size:bold;'> Log in</a>'";
+            } else {
+                echo "<a class='nav-link' href='logout.php' style='color: white; font-size:bold;'> Log out</a>'";
             }
             $data = search();
             ?>

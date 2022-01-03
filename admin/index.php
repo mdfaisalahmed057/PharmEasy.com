@@ -22,18 +22,22 @@ session_start();
         )) {
         ?>
           <a class="nav-link px-3" href="logout.php">Sign out</a>
-      </div><?php
-          } else {
-            ?>
-      <a class="nav-link px-3" href="login.php
-      ">Log in</a>
-    <?php
-          }
-    ?>
+        <?php
+        } else {
+        ?>
+          <a class="nav-link px-3" href="login.php">Log in</a>
+
+        <?php
+        }
+        ?>
+
+      </div>
+
     </div>
+
   </header>
 
-  <div class="container-fluid">
+  <div class=" container-fluid">
     <div class="row">
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
         <div class="position-sticky pt-3">
@@ -57,7 +61,7 @@ session_start();
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="customers.php">
                 <span data-feather="users"></span>
                 Customers
               </a>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "functions.php";
+include "includes/functions.php";
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container-fluid">

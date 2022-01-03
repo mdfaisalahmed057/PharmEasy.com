@@ -11,7 +11,7 @@
 <!------ Include the above in your HEAD tag ---------->
 <?php
 session_start();
-include "../includes/functions.php";
+include "includes/functions.php";
 ?>
 <div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -25,11 +25,12 @@ include "../includes/functions.php";
 
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                 <?php
-                admin_login();
+                login();
                 message();
+                echo $_SESSION['admin_id'];
 
                 ?>
-                <form id="loginform" class="form-horizontal" role="form" method="post" action="adminLogin.php">
+                <form id="loginform" class="form-horizontal" role="form" method="post" action="login.php">
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -45,7 +46,7 @@ include "../includes/functions.php";
                         <!-- Button -->
 
                         <div class="col-sm-12 controls">
-                            <input id="btn-login" class="btn btn-success" type="submit" value="login" name="adminLogin" />
+                            <input id="btn-login" class="btn btn-success" type="submit" value="login" name="login" />
                         </div>
                     </div>
 

@@ -123,6 +123,11 @@ function search()
         $query = "SELECT item_brand, item_title ,item_id ,item_description ,item_image FROM item WHERE item_tags LIKE '%$search_text%'";
         $data = query($query);
         return $data;
+    } elseif (isset($_GET['cat'])) {
+        $cat = $_GET['cat'];
+        $query = "SELECT item_brand, item_title ,item_id ,item_description ,item_image FROM item WHERE item_cat='$cat' ORDER BY RAND()";
+        $data = query($query);
+        return $data;
     }
 }
 function all_products()

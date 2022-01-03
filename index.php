@@ -10,81 +10,83 @@ include "includes/head.php"
   session_start();
   include "includes/header.php";
   ?>
-  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="images/carousel1.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="images/carousel2.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="images/carousel3.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src=" images/carousel4.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src=" images/carousel5.jpg" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
-
-
-  <!----------------       end of carousel                     --------->
-
-  <!-- categories-->
-  <h2 style="margin-top: 10px;">Categories : </h2>
-
-  <div class="row" id="cards">
-    <div class="col-sm-4">
-      <div class="card border border-warning">
-        <div class="card-body">
-          <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
-          <h5 class="card-title">Medicine</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-success">Go to Medicine</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card border border-warning">
-        <div class="card-body">
-          <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
-          <h5 class="card-title">self care </h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-success">Go self care </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card border border-warning">
-        <div class="card-body">
-
-          <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
-          <h5 class="card-title">machines</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-success">Go machines</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end of categories-->
-
-
-  <!----------------         products might you like                     --------->
-
-  <h2 style="margin-top: 10px;">Products you might like : </h2>
   <div class="container-fluid ">
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/carousel1.jpg" class="d-block w-100 `" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/carousel2.jpg" class="d-block w-100 `" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/carousel3.jpg" class="d-block w-100 `" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src=" images/carousel4.jpg" class="d-block w-100 `" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src=" images/carousel5.jpg" class="d-block w-100 ` " alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+
+    <!----------------       end of carousel                     --------->
+
+    <!-- categories-->
+
+    <h2 style="margin-top: 10px;">Categories : </h2>
+
+    <div class="row" id="cards">
+      <div class="col-sm-4">
+        <div class="card border border-warning">
+          <div class="card-body">
+            <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
+            <h5 class="card-title">Medicine</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="search.php?cat=medicine" class="btn btn-success">Go to Medicine</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card border border-warning">
+          <div class="card-body">
+            <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
+            <h5 class="card-title">self care </h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="search.php?cat=self-care" class="btn btn-success">Go self care </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card border border-warning">
+          <div class="card-body">
+
+            <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
+            <h5 class="card-title">machines</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="search.php?cat=machine" class="btn btn-success">Go machines</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of categories-->
+
+
+    <!----------------         products might you like                     --------->
+
+    <h2 style="margin-top: 10px;">Products you might like : </h2>
 
     <div class="row">
       <?php

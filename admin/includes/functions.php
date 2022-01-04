@@ -26,15 +26,10 @@ function query($query)
         return 0;
     }
 }
-function delete_query($query)
+function single_query($query)
 {
     $connection = mysqli_connect("localhost", "root", "", "PharmEasy");
     $run = mysqli_query($connection, $query);
-    if ($run) {
-        return 1;
-    } else {
-        return 0;
-    }
 }
 function login()
 {
@@ -63,6 +58,16 @@ function message()
         The email or the password is incorrect !!!
       </div>";
         unset($_SESSION['message']);
+    } elseif ($_SESSION['message'] == "emailErr") {
+        echo "   <div class='alert alert-danger' role='alert'>
+        The email address is already taken.  Please choose another
+      </div>";
+        unset($_SESSION['message']);
+    } elseif ($_SESSION['message'] == "noResult") {
+        echo "   <div class='alert alert-danger' role='alert'>
+        There is no user with this email address .
+      </div>";
+        unset($_SESSION['message']);
     }
 }
 function all_users()
@@ -76,7 +81,60 @@ function delete_user()
     if (isset($_GET['delete'])) {
         $userId = $_GET['delete'];
         $query = "DELETE FROM user WHERE user_id ='$userId'";
-        $run = delete_query($query);
+        $run = single_query($query);
         get_redirect("customers.php");
+    }
+}
+function edit_user($id)
+{
+    if (isset($_POST['update'])) {
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $check = 1;
+        $check = check_email($email);
+        if ($check == 1) {
+            $query = "UPDATE user SET email='$email' ,user_fname='$fname' ,user_lname='$lname' ,user_address='$address' WHERE user_id= '$id'";
+            single_query($query);
+            get_redirect("customers.php");
+        } else {
+            $_SESSION['message'] = "emailErr";
+            get_redirect("customers.php");
+        }
+    } elseif (isset($_POST['cancel'])) {
+        get_redirect("customers.php");
+    }
+}
+function get_user($id)
+{
+    $query = "SELECT user_id ,user_fname ,user_lname ,email ,user_address FROM user WHERE user_id=$id";
+    $data = query($query);
+    return $data;
+}
+function check_email($email)
+{
+    $query = "SELECT email FROM user";
+    $data = query($query);
+    $num = sizeof($data);
+    for ($i = 0; $i < $num; $i++) {
+        if ($data[0]['email'] == $email) {
+            return 0;
+        }
+    }
+    // return 1;
+}
+function search_user()
+{
+    if (isset($_GET['search_user'])) {
+        $email = $_GET['search_user_email'];
+        $query = "SELECT user_id ,user_fname ,user_lname ,email ,user_address FROM user WHERE email='$email'";
+        $data = query($query);
+        if ($data) {
+            return $data;
+        } else {
+            $_SESSION['message'] = "noResult";
+            return;
+        }
     }
 }

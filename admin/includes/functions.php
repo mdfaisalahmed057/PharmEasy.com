@@ -30,6 +30,11 @@ function single_query($query)
 {
     $connection = mysqli_connect("localhost", "root", "", "PharmEasy");
     $run = mysqli_query($connection, $query);
+    if ($run) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 function login()
 {
@@ -66,6 +71,11 @@ function message()
     } elseif ($_SESSION['message'] == "noResult") {
         echo "   <div class='alert alert-danger' role='alert'>
         There is no user with this email address .
+      </div>";
+        unset($_SESSION['message']);
+    } elseif ($_SESSION['message'] == "itemErr") {
+        echo "   <div class='alert alert-danger' role='alert'>
+        There is a product with the same name .
       </div>";
         unset($_SESSION['message']);
     }
@@ -133,5 +143,104 @@ function search_user()
             $_SESSION['message'] = "noResult";
             return;
         }
+    }
+}
+function all_items()
+{
+    $query = "SELECT * FROM item";
+    $data = query($query);
+    return $data;
+}
+function delete_item()
+{
+    if (isset($_GET['delete'])) {
+        $itemID = $_GET['delete'];
+        $query = "DELETE FROM item WHERE item_id ='$itemID'";
+        $run = single_query($query);
+        get_redirect("products.php");
+    }
+}
+function edit_item($id)
+{
+    if (isset($_POST['update'])) {
+        $name = $_POST['name'];
+        $brand = $_POST['brand'];
+        $cat = $_POST['cat'];
+        $description = $_POST['description'];
+        $tags = $_POST['tags'];
+        $image = $_POST['image'];
+        $quantity = $_POST['quantity'];
+        $price = $_POST['price'];
+        $details = $_POST['details'];
+        $check = check_name($name);
+        if ($check == 0) {
+            $query = "UPDATE item SET item_title='$name' ,item_brand='$brand' ,item_cat='$cat' ,
+            item_details='$details',item_description='$description' ,item_tags='$tags' 
+            ,item_image='$image' ,item_quantity='$quantity' ,item_price='$price'  WHERE item_id= '$id'";
+            $run = single_query($query);
+            get_redirect("products.php");
+        } else {
+            $_SESSION['message'] = "itemErr";
+            get_redirect("products.php");
+        }
+    } elseif (isset($_POST['cancel'])) {
+        get_redirect("products.php");
+    }
+}
+function get_item($id)
+{
+    $query = "SELECT * FROM item WHERE item_id=$id";
+    $data = query($query);
+    return $data;
+}
+function check_name($name)
+{
+    $query = "SELECT item_title FROM item WHERE item_title='$name'";
+    $data = query($query);
+    if ($data) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+function search_item()
+{
+    if (isset($_GET['search_item'])) {
+        $name = $_GET['search_item_name'];
+        $query = "SELECT * FROM item WHERE item_title LIKE '%$name%'";
+        $data = query($query);
+        if ($data) {
+            return $data;
+        } else {
+            $_SESSION['message'] = "noResult";
+            return;
+        }
+    }
+}
+function add_item()
+{
+    if (isset($_POST['add_item'])) {
+        $name = $_POST['name'];
+        $brand = $_POST['brand'];
+        $cat = $_POST['cat'];
+        $description = $_POST['description'];
+        $tags = $_POST['tags'];
+        $image = $_POST['image'];
+        $quantity = $_POST['quantity'];
+        $price = $_POST['price'];
+        $details = $_POST['details'];
+        $check = check_name($name);
+        if ($check == 0) {
+            $query = "INSERT INTO item (item_title, item_brand, item_cat, item_details ,item_description ,
+            item_tags ,item_image ,item_quantity ,item_price) VALUES
+            ('$name' ,'$brand' ,'$cat' ,'$details' ,'$description' ,'$tags' ,'$image' ,'$quantity' ,'$price')";
+            $run = single_query($query);
+            get_redirect("products.php");
+        } else {
+            $_SESSION['message'] = "itemErr";
+            get_redirect("products.php");
+        }
+    } elseif (isset($_POST['cancel'])) {
+        get_redirect("products.php");
     }
 }

@@ -92,9 +92,8 @@ function edit_user($id)
         $lname = $_POST['lname'];
         $email = $_POST['email'];
         $address = $_POST['address'];
-        $check = 1;
         $check = check_email($email);
-        if ($check == 1) {
+        if ($check == 0) {
             $query = "UPDATE user SET email='$email' ,user_fname='$fname' ,user_lname='$lname' ,user_address='$address' WHERE user_id= '$id'";
             single_query($query);
             get_redirect("customers.php");
@@ -114,15 +113,13 @@ function get_user($id)
 }
 function check_email($email)
 {
-    $query = "SELECT email FROM user";
+    $query = "SELECT email FROM user WHERE email='$email'";
     $data = query($query);
-    $num = sizeof($data);
-    for ($i = 0; $i < $num; $i++) {
-        if ($data[0]['email'] == $email) {
-            return 0;
-        }
+    if ($data) {
+        return 1;
+    } else {
+        return 0;
     }
-    // return 1;
 }
 function search_user()
 {

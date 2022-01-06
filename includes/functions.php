@@ -238,3 +238,20 @@ function delete_from_cart()
         get_redirect("cart.php");
     }
 }
+function add_order()
+{
+    if (isset($_GET['order'])) {
+        $num = sizeof($_SESSION['cart']);
+        $date = date("Y-m-d");
+        for ($i = 0; $i < $num; $i++) {
+            $item_id = $_SESSION['cart'][$i]['item_id'];
+            $user_id = $_SESSION['cart'][$i]['user_id'];
+            $quantity = $_SESSION['cart'][$i]['quantity'];
+            $query = "INSERT INTO orders (user_id,item_id,order_quantity,order_date) 
+            VALUES('$user_id','$item_id','$quantity','$date')";
+            $data =   insert($query);
+        }
+        unset($_SESSION['cart']);
+        get_redirect("final.php");
+    }
+}

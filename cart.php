@@ -105,7 +105,7 @@ include "includes/head.php"
             <div style="margin-left: 350px; padding-right: 100px;">
                 <a href="product.php?delete=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-danger btn-lg"> Delete all Products !</a>
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <a href="final.php" class="btn btn-success btn-lg"> &nbsp;Proceed to Buy &nbsp;</a>
+                <a href="final.php?order=done" class="btn btn-success btn-lg"> &nbsp;Proceed to Buy &nbsp;</a>
                 <br><br>
             </div>
         <?php

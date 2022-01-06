@@ -127,4 +127,7 @@ include "includes/head.php";
     </main>
     </div>
     </div>
+    <?php
+    include "includes/footer.php"
+    ?>
 </body>

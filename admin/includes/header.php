@@ -14,9 +14,9 @@ include "includes/functions.php"
                 <a class="nav-link px-3" href="logout.php">Sign out</a>
             <?php
             } else {
+                post_redirect("login.php");
             ?>
-                <a class="nav-link px-3" href="login.php">Log in</a>
-
+                <!-- <a class="nav-link px-3" href="login.php">Log in</a> -->
             <?php
             }
             ?>

@@ -54,7 +54,7 @@ include "includes/head.php"
           <div class="card-body">
             <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
             <h5 class="card-title">Medicine</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">All products that belongs to Medicine .</p>
             <a href="search.php?cat=medicine" class="btn btn-success">Go to Medicine</a>
           </div>
         </div>

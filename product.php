@@ -1,111 +1,88 @@
-<!doctype html>
-<html lang="en">
-
 <?php
-include "includes/head.php";
-include "includes/header.php";
-
-
+include "includes/head.php"
 ?>
 
 <body>
   <?php
-  session_start()
+  include "includes/header.php";
+  $data = get_item();
+  add_cart($_SESSION['item_id']);
   ?>
+  <br>
+  <div class="container-fluid  bg-3 text-center">
 
+    <div class="row">
+      <div class="col">
+        <img src="images/<?php echo $data[0]['item_image'] ?>" alt="Image" width="450" height="585">
+      </div>
+      <div class=" col">
+        <br>
+        <p style="font-weight: bold;"><?php echo $data[0]['item_title'] ?><br>
+        <h1 class="border border-1" style="width: 100%;"> </h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-6 col-sm-4" style="font-weight:bold">Brand</div>
+            <div class="col-6 col-sm-4"><?php echo $data[0]['item_brand'] ?></div><br>
+            <div class="w-100 d-none d-md-block"></div>
+            <div class="col-6 col-sm-4" style="padding-top: 20px;font-weight:bold">category </div>
+            <div class="col-6 col-sm-4" style="padding-top: 20px;font-weight: bold"> <?php echo $data[0]['item_cat'] ?></div>
+          </div>
+        </div>
+        <h1 class="border border-1" style="width: 100%;  "> </h1>
+        <h5 style="width: 100%; padding-right: 180px; font-weight: bold;">About this item</h5>
+        <p style="font-weight: bold;">
+          <?php echo $data[0]['item_details'] ?>
+        </p>
+        </p>
+        <h1 class="border border-1" style="width: 100%;  "> </h1>
+      </div>
+      <div class="col-sm-4" style=" padding-left:5rem;">
+        <div class="card" style="width: 18rem;  ">
+          <div class="card-body">
+            <h5 class="card-title" style="color: rgb(211, 79, 79);"> ₹ <?php echo $data[0]['item_price'] ?></h5>
+            <?php if ($data[0]['item_quantity'] > 0) {
 
+            ?>
+              <h6 style="color: rgb(58, 211, 58);">In Stock</h6>
+            <?php
+            } else {
+            ?>
+              <small style="color: red;">Out Of Stock</small>
 
+            <?php
+            }
+            $user = get_user($_SESSION['user_id']);
+            ?>
+            <p class="card-text">
+              <span style="color: blue;">Deliver to :</span>
+              <?php
+              if (isset($user)) {
+                echo $user[0]['user_address'];
+              } else {
+                echo "Btm 1st stage opp maruthi layout,4th 560029 bagalore (Store)";
+              }
+              ?>
+            </p>
+            <ul class="list-group list-group-flush">
+              <form action="product.php" method="GET">
+                <div class="form-group">
+                  <input value="1" type="number" class="form-control" placeholder="" name="quantity" min="1" max="999">
+                </div>
+                <br>
+                <button type="submit" value="buy" name="buy" class="btn btn-warning " style="margin: 5px;">&nbsp; Buy Now &nbsp;</button>
+                <br>
+                <button type="submit" value="" name="cart" class="btn btn-warning " style="margin: 5px;">Add to Cart</button>
+              </form>
+            </ul>
 
-  <h4 style="margin-left: 20px;">product:Dettol</h4>
-  <p style="margin-left: 20px;">Dettol Liquid Disinfectant for Floor Cleaner, Surface Disinfection , Personal Hygiene (Lime Fresh , 1L)</p>
-  <h1 class="border border-1" style="width: 100%;"> </h1>
-  <!-- <img src="http://127.0.0.1:5500/dettol.jpg" class="card-img-top" alt="..." style="width: 200px;"> -->
-  <!-- <div class="card border border-success" style="width: 16rem;">  -->
+          </div>
 
-
-  <div class="buy-product">
-
-    <img src="50-percent.png" style="padding-left:30px;">
-    <img src="dettttol.png" class="card-img-top" alt="..." style="width: 250px;">
-
-  </div>
-
-  <!-- <div class="card " style="width: 16rem;">  -->
-
-  <!-- <div class="card-body">
-      <h5 class="card-title"> Dettol</h5>
-      <p class="card-text">
-          M.R.P:330<br>
-          End in 13h 05min 21s<br>
-          You Save:RS-100(30%)<br>
-      </p>
-      <a href="#" class="btn btn-primary" >buy</a>
+        </div>
+      </div>
     </div>
-  </div> -->
-
-  <div class="details" style="padding-left: 50px;">
-    <p class="card-text">
-      M.R.P:330<br>
-      End in 13h 05min 21s<br>
-      You Save:RS-100(30%) <br>
-      Rating (5)
-      <img src="ratings.png" style="width: 80px;"><br>
-      <button class="btn btn-success">Add to Cart</button>
-    </p>
-    <form>
-      <div class="mb-3 ">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control  border border-success " placeholder=" Enter Your Email" styel="width:30px" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Enter Name</label>
-        <input type=" name" placeholder="Enter Your Name" class="form-control  border border-success" id="exampleInputPassword1">
-      </div>
-      <!-- <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div> -->
-
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Last Name</label>
-        <input type="Last Name" placeholder=" Last Name" class="form-control  border border-success" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Phone Number</label>
-        <input type=" Phone Number" placeholder="Phone Number" class="form-control  border border-success" id="exampleInputPassword1">
-      </div>
-
-      <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected>Open this to select state</option>
-        <option value="1"> karnataka </option>
-        <option value="2"> AndhraPerdesh</option>
-        <option value="3">Gujarat </option>
-        <option value="3"> Haryana</option>
-        <option value="1"> Jharkhand</option>
-        <option value="2"> AndhraPerdesh</option>
-        <option value="3"> Assam </option>
-        <option value="3"> Chhattisgarh</option>
-
-      </select>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label"> Address</label>
-        <input type="Address" placeholder="Address" class="form-control  border border-success" id="exampleInputPassword1">
-      </div>
-      <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected>Address Type</option>
-        <option value="1">Home(7am-9pm delivery)</option>
-        <option value="2">Office/commercial(10AM-6PM delivery)</option>
-
-      </select>
-      <button type="button" class="btn btn-lg btn-primary" style="width: 40%; height: 30px; padding-bottom: 40px; margin-left: 100px; margin-top: 20px;">Buy Now</button>
-      <h1> congratulation</h1>
-    </form>
-    <!-- <a href="#" class="btn btn-primary" >buy</a> -->
+    <br>
   </div>
-
-
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

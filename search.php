@@ -7,6 +7,7 @@ include "includes/head.php"
     <?php
     session_start();
     include "includes/header.php";
+    
     ?>
     <div class="container-fluid ">
         <div class="row">

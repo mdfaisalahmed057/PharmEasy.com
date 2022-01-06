@@ -1,11 +1,17 @@
 <?php
 session_start();
-function redirect($url)
+function post_redirect($url)
 {
     ob_start();
     header('Location: ' . $url);
     ob_end_flush();
     die();
+}
+function get_redirect($url)
+{
+    echo " <script> 
+    window.location.href = '$url'; 
+    </script>";
 }
 function query($query)
 {
@@ -41,13 +47,13 @@ function login()
         $data = query($query);
         if ($data == 0) {
             $_SESSION['message'] = "loginErr";
-            redirect("login.php");
+            post_redirect("login.php");
         } elseif ($password == $data[0]['user_password'] and  $userEmail == $data[0]['email']) {
             $_SESSION['user_id'] = $data[0]['user_id'];
-            redirect("index.php");
+            post_redirect("index.php");
         } else {
             $_SESSION['message'] = "loginErr";
-            redirect("login.php");
+            post_redirect("login.php");
         }
     }
 }
@@ -62,10 +68,10 @@ function singUp()
         $passwd = $_POST['passwd'];
         if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
             $_SESSION['message'] = "signUpErr";
-            redirect("signUp.php");
+            post_redirect("signUp.php");
         } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,30}$/', $passwd)) {
             $_SESSION['message'] = "signUpErr";
-            redirect("signUp.php");
+            post_redirect("signUp.php");
         }
         $query = "SELECT email FROM user ";
         $data = query($query);
@@ -73,7 +79,7 @@ function singUp()
         for ($i = 0; $i < $count; $i++) {
             if ($email == $data[$i]['email']) {
                 $_SESSION['message'] = "usedEmail";
-                redirect("signUp.php");
+                post_redirect("signUp.php");
             }
         }
         $query = "INSERT INTO user (email ,user_fname ,user_lname , user_address,user_password ) VALUES('$email', '$fname' ,'$lname','$address' ,'$passwd')";
@@ -82,10 +88,10 @@ function singUp()
         $data = query($query);
         $_SESSION['user_id'] = $data[0]['user_id'];
         if ($queryStatus == "done") {
-            redirect("index.php");
+            post_redirect("index.php");
         } else {
             $_SESSION['message'] = "wentWrong";
-            redirect("signUp.php");
+            post_redirect("signUp.php");
         }
     }
 }
@@ -136,19 +142,99 @@ function all_products()
     $data = query($query);
     return $data;
 }
-function product_details()
-{
-    if (isset($_GET['product_id'])) {
-        echo "hi";
-    }
-}
 function total_price($data)
 {
     $sum = 0;
     $num = sizeof($data);
     for ($i = 0; $i < $num; $i++) {
-        $sum += $data[$i]['item_price'];
+        $sum += $data[$i][0]['item_price'];
     }
     return $sum;
 }
-
+function get_item()
+{
+    if (isset($_GET['product_id'])) {
+        $_SESSION['item_id'] = $_GET['product_id'];
+        $id = $_GET['product_id'];
+        $query = "SELECT * FROM item WHERE item_id='$id'";
+        $data = query($query);
+        return $data;
+    }
+}
+function get_user($id)
+{
+    $query = "SELECT user_id ,user_fname ,user_lname ,email ,user_address FROM user WHERE user_id=$id";
+    $data = query($query);
+    return $data;
+}
+function add_cart($item_id)
+{
+    if (isset($_GET['cart'])) {
+        $user_id = $_SESSION['user_id'];
+        $quantity = $_GET['quantity'];
+        if (empty($user_id)) {
+            get_redirect("login.php");
+        } else {
+            if (isset($_SESSION['cart'])) {
+                $num = sizeof($_SESSION['cart']);
+                $_SESSION['cart'][$num]['user_id'] = $user_id;
+                $_SESSION['cart'][$num]['item_id'] = $item_id;
+                $_SESSION['cart'][$num]['quantity'] = $quantity;
+                get_redirect("product.php?product_id=" . $item_id);
+            } else {
+                $_SESSION['cart'][0]['user_id'] = $user_id;
+                $_SESSION['cart'][0]['item_id'] = $item_id;
+                $_SESSION['cart'][0]['quantity'] = $quantity;
+                get_redirect("product.php?product_id=" . $item_id);
+            }
+        }
+    } elseif (isset($_GET['buy'])) {
+        $user_id = $_SESSION['user_id'];
+        $quantity = $_GET['quantity'];
+        if (!isset($user_id)) {
+            get_redirect("login.php");
+        } else {
+            if (isset($_SESSION['cart'])) {
+                $num = sizeof($_SESSION['cart']);
+                $_SESSION['cart'][$num]['user_id'] = $user_id;
+                $_SESSION['cart'][$num]['item_id'] = $item_id;
+                $_SESSION['cart'][$num]['quantity'] = $quantity;
+                get_redirect("cart.php");
+            } else {
+                $_SESSION['cart'][0]['user_id'] = $user_id;
+                $_SESSION['cart'][0]['item_id'] = $item_id;
+                $_SESSION['cart'][0]['quantity'] = $quantity;
+                get_redirect("cart.php");
+            }
+        }
+    }
+}
+function get_cart()
+{
+    $num = sizeof($_SESSION['cart']);
+    if (isset($num)) {
+        for ($i = 0; $i < $num; $i++) {
+            $item_id = $_SESSION['cart'][$i]['item_id'];
+            $query = "SELECT item_id, item_image ,item_title ,item_description ,item_quantity ,item_price ,item_brand FROM item WHERE item_id='$item_id'";
+            $data[$i] = query($query);
+        }
+        return $data;
+    } else {
+        echo 0;
+    }
+}
+function delete_from_cart()
+{
+    if (isset($_GET['delete'])) {
+        $item_id = $_GET['delete'];
+        $num = sizeof($_SESSION['cart']);
+        for ($i = 0; $i < $num; $i++) {
+            if ($_SESSION['cart'][$i]['item_id'] == $item_id) {
+                unset($_SESSION['cart'][$i]);
+                $_SESSION['cart'] = array_values($_SESSION['cart']);
+                break;
+            }
+        }
+        get_redirect("cart.php");
+    }
+}

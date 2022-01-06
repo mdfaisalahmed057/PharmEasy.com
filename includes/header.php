@@ -14,24 +14,27 @@ include "includes/functions.php";
                     <a class="nav-link " aria-current="page" href="index.php" style="color: white; font-size:bold;">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white; font-size:bold;">Cart</a>
+                    <a class="nav-link" href="cart.php" style="color: white; font-size:bold;">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin/index.php" style="color: white; font-size:bold;">Admin</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link  dropdown-toggle " style="color: white; font-size:bold;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Categories
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="color: white; font-size:bold;">
-                        <li><a class="dropdown-item " href="#">HealthCare</a></li>
-                        <li><a class="dropdown-item" href="#">Lab Test</a></li>
-                        <li><a class="dropdown-item" href="#"> Products</a></li>
+                        <li><a class="dropdown-item " href="search.php?cat=medicine">Medicine</a></li>
+                        <li><a class="dropdown-item" href="search.php?cat=self-care">Self Care</a></li>
+                        <li><a class="dropdown-item" href="search.php?cat=machine"> machines</a></li>
                     </ul>
                 </li>
             </ul>
             <?php
             if (!isset($_SESSION['user_id'])) {
-                echo "<a class='nav-link' href='login.php' style='color: white; font-size:bold;'> Log in</a>'";
+                echo "<a class='nav-link' href='login.php' style='color: white; font-size:bold;'> Log in</a>";
             } else {
-                echo "<a class='nav-link' href='logout.php' style='color: white; font-size:bold;'> Log out</a>'";
+                echo "<a class='nav-link' href='logout.php' style='color: white; font-size:bold;'> Log out</a>  ";
             }
             $data = search();
             ?>

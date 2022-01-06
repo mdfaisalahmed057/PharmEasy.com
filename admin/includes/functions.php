@@ -102,7 +102,7 @@ function edit_user($id)
         $lname = $_POST['lname'];
         $email = $_POST['email'];
         $address = $_POST['address'];
-        $check = check_email($email);
+        $check = check_email_user($email);
         if ($check == 0) {
             $query = "UPDATE user SET email='$email' ,user_fname='$fname' ,user_lname='$lname' ,user_address='$address' WHERE user_id= '$id'";
             single_query($query);
@@ -121,7 +121,7 @@ function get_user($id)
     $data = query($query);
     return $data;
 }
-function check_email($email)
+function check_email_user($email)
 {
     $query = "SELECT email FROM user WHERE email='$email'";
     $data = query($query);
@@ -242,5 +242,49 @@ function add_item()
         }
     } elseif (isset($_POST['cancel'])) {
         get_redirect("products.php");
+    }
+}
+function all_admins()
+{
+    $query = "SELECT admin_id ,admin_fname ,admin_lname ,admin_email  FROM admin";
+    $data = query($query);
+    return $data;
+}
+function get_admin($id)
+{
+    $query = "SELECT admin_id ,admin_fname ,admin_lname ,admin_email  FROM admin WHERE admin_id=$id";
+    $data = query($query);
+    return $data;
+}
+function edit_admin($id)
+{
+    if (isset($_POST['admin_update'])) {
+        $fname = $_POST['admin_fname'];
+        $lname = $_POST['admin_lname'];
+        $email = $_POST['admin_email'];
+        $check = check_email_admin($email);
+        if (empty($check[0]['admin_email'])) {
+            echo "empty";
+        }
+        if ($check == 0) {
+            $query = "UPDATE admin SET admin_email='$email' ,admin_fname='$fname' ,admin_lname='$lname'  WHERE admin_id= '$id'";
+            single_query($query);
+            get_redirect("admin.php");
+        } else {
+            $_SESSION['message'] = "emailErr";
+            get_redirect("admin.php");
+        }
+    } elseif (isset($_POST['admin_cancel'])) {
+        get_redirect("admin.php");
+    }
+}
+function check_email_admin($email)
+{
+    $query = "SELECT admin_email FROM admin WHERE admin_email='$email'";
+    $data = query($query);
+    if ($data) {
+        return $data;
+    } else {
+        return 0;
     }
 }

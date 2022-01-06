@@ -28,7 +28,7 @@ include "includes/head.php";
                     <br>
                     <form class="d-flex" method="GET" action="admin.php">
                         <input class="form-control me-2 col" type="search" name="search_admin_email" placeholder="Search for admin (email)" aria-label="Search">
-                        <button class="btn btn-outline-dark" type="submit" name="search_admin" value="search">Search</button>
+                        <button class="btn btn-outline-secondary" type="submit" name="search_admin" value="search">Search</button>
                     </form>
                     <br>
                 </div>
@@ -67,10 +67,10 @@ include "includes/head.php";
                             <td><?php echo $data[$i]['admin_lname'] ?></td>
                             <td><?php echo $data[$i]['admin_email'] ?></td>
                             <td>
-                                <button type="button" class="btn pull-left btn-warning"><a style="text-decoration: none; color:black;" href="admin.php?edit=<?php echo $data[$i]['admin_id'] ?>">Edit</a></button>
+                                <button type="button" class="btn pull-left btn-outline-warning"><a style="text-decoration: none; color:black;" href="admin.php?edit=<?php echo $data[$i]['admin_id'] ?>">Edit</a></button>
                             </td>
                             <td>
-                                <button type="button" class="btn pull-left btn-danger"><a style="text-decoration: none; color:black;" href="admin.php?delete=<?php echo $data[$i]['admin_id'] ?>">Delete</a></button>
+                                <button type="button" class="btn pull-left btn-outline-danger"><a style="text-decoration: none; color:black;" href="admin.php?delete=<?php echo $data[$i]['admin_id'] ?>">Delete</a></button>
                             </td>
                         </tr>
                     <?php  }
@@ -78,7 +78,7 @@ include "includes/head.php";
                 </tbody>
             </table>
         </div>
-        <button type="button" class="btn btn-primary "><a style="text-decoration: none; color:white;" href="admin.php?add=1"> &nbsp;&nbsp;Add&nbsp;&nbsp;</a></button>
+        <button type="button" class="btn btn-outline-primary "><a style="text-decoration: none; color:black;" href="admin.php?add=1"> &nbsp;&nbsp;Add&nbsp;&nbsp;</a></button>
         <br><br>
         <?php
 
@@ -109,8 +109,8 @@ include "includes/head.php";
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $data[0]['admin_email'] ?>" name="admin_email">
                     <div class="form-text">please enter the email in format : example@gmail.com.</div>
                 </div>
-                <button type="submit" class="btn btn-primary" value="update" name="admin_update">Submit</button>
-                <button type=" submit" class="btn btn-danger" value="cancel" name="admin_cancel">Cancel</button>
+                <button type="submit" class="btn btn-outline-primary" value="update" name="admin_update">Submit</button>
+                <button type=" submit" class="btn btn-outline-danger" value="cancel" name="admin_cancel">Cancel</button>
                 <br> <br>
             </form>
 
@@ -152,8 +152,8 @@ include "includes/head.php";
                     </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary" value="update" name="add_admin">Submit</button>
-                <button type=" submit" class="btn btn-danger" value="cancel" name="admin_cancel">Cancel</button>
+                <button type="submit" class="btn btn-outline-primary" value="update" name="add_admin">Submit</button>
+                <button type=" submit" class="btn btn-outline-danger" value="cancel" name="admin_cancel">Cancel</button>
                 <br> <br>
             </form>
 

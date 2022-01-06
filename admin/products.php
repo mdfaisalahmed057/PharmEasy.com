@@ -19,7 +19,7 @@ include "includes/head.php";
             <div class="row align-items-start">
                 <div class="col">
                     <br>
-                    <h2>Customer details</h2>
+                    <h2>Products details</h2>
                     <br>
                 </div>
                 <div class="col">
@@ -28,7 +28,7 @@ include "includes/head.php";
                     <br>
                     <form class="d-flex" method="GET" action="products.php">
                         <input class="form-control me-2 col" type="search" name="search_item_name" placeholder="Search for product" aria-label="Search">
-                        <button class="btn btn-outline-dark" type="submit" name="search_item" value="search">Search</button>
+                        <button class="btn btn-outline-secondary" type="submit" name="search_item" value="search">Search</button>
                     </form>
                     <br>
                 </div>
@@ -51,7 +51,7 @@ include "includes/head.php";
                         <th scope="col">details</th>
                         <th>
                         <th>
-                            <button type="button" class="btn btn-primary"><a style="text-decoration: none; color:white;" href="products.php?add=1"> &nbsp;&nbsp;Add&nbsp;&nbsp;</a></button>
+                            <button type="button" class="btn btn-outline-primary"><a style="text-decoration: none; color:black;" href="products.php?add=1"> &nbsp;&nbsp;Add&nbsp;&nbsp;</a></button>
                         </th>
                         </th>
 
@@ -84,10 +84,10 @@ include "includes/head.php";
                             <td><?php echo $data[$i]['item_price'] ?></td>
                             <td><?php echo $data[$i]['item_details'] ?></td>
                             <td>
-                                <button type="button" class="btn pull-left btn-warning"><a style="text-decoration: none; color:black;" href="products.php?edit=<?php echo $data[$i]['item_id'] ?>">Edit</a></button>
+                                <button type="button" class="btn pull-left btn-outline-warning"><a style="text-decoration: none; color:black;" href="products.php?edit=<?php echo $data[$i]['item_id'] ?>">Edit</a></button>
                             </td>
                             <td>
-                                <button type="button" class="btn pull-left btn-danger"><a style="text-decoration: none; color:black;" href="products.php?delete=<?php echo $data[$i]['item_id'] ?>">Delete</a></button>
+                                <button type="button" class="btn pull-left btn-outline-danger"><a style="text-decoration: none; color:black;" href="products.php?delete=<?php echo $data[$i]['item_id'] ?>">Delete</a></button>
                             </td>
                         </tr>
                     <?php
@@ -159,8 +159,8 @@ include "includes/head.php";
                 </div>
                 <div class="form-text">please enter the product details .</div>
                 <br>
-                <button type="submit" class="btn btn-primary" value="update" name="update">Submit</button>
-                <button type=" submit" class="btn btn-danger" value="cancel" name="cancel">Cancel</button>
+                <button type="submit" class="btn btn-outline-primary" value="update" name="update">Submit</button>
+                <button type=" submit" class="btn btn-outline-danger" value="cancel" name="cancel">Cancel</button>
                 <br> <br>
             </form>
         <?php
@@ -222,8 +222,8 @@ include "includes/head.php";
                 </div>
                 <div class="form-text">please enter the product details .</div>
                 <br>
-                <button type="submit" class="btn btn-primary" value="update" name="add_item">Submit</button>
-                <button type=" submit" class="btn btn-danger" value="cancel" name="cancel">Cancel</button>
+                <button type="submit" class="btn btn-outline-primary" value="update" name="add_item">Submit</button>
+                <button type=" submit" class="btn btn-outline-danger" value="cancel" name="cancel">Cancel</button>
                 <br> <br>
             </form>
         <?php

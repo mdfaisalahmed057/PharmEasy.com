@@ -28,7 +28,7 @@ include "includes/head.php";
                     <br>
                     <form class="d-flex" method="GET" action="customers.php">
                         <input class="form-control me-2 col" type="search" name="search_user_email" placeholder="Search for user (email)" aria-label="Search">
-                        <button class="btn btn-outline-dark" type="submit" name="search_user" value="search">Search</button>
+                        <button class="btn btn-outline-secondary" type="submit" name="search_user" value="search">Search</button>
                     </form>
                     <br>
                 </div>
@@ -69,10 +69,10 @@ include "includes/head.php";
                             <td><?php echo $data[$i]['email'] ?></td>
                             <td><?php echo $data[$i]['user_address'] ?></td>
                             <td>
-                                <button type="button" class="btn pull-left btn-warning"><a style="text-decoration: none; color:black;" href="customers.php?edit=<?php echo $data[$i]['user_id'] ?>">Edit</a></button>
+                                <button type="button" class="btn pull-left btn-outline-warning"><a style="text-decoration: none; color:black;" href="customers.php?edit=<?php echo $data[$i]['user_id'] ?>">Edit</a></button>
                             </td>
                             <td>
-                                <button type="button" class="btn pull-left btn-danger"><a style="text-decoration: none; color:black;" href="customers.php?delete=<?php echo $data[$i]['user_id'] ?>">Delete</a></button>
+                                <button type="button" class="btn pull-left btn-outline-danger"><a style="text-decoration: none; color:black;" href="customers.php?delete=<?php echo $data[$i]['user_id'] ?>">Delete</a></button>
                             </td>
                         </tr>
                     <?php  }
@@ -114,8 +114,8 @@ include "includes/head.php";
                 </div>
                 <div class="form-text">please enter the email in format : #1, North Street, Chennai - 11.</div>
                 <br>
-                <button type="submit" class="btn btn-primary" value="update" name="update">Submit</button>
-                <button type=" submit" class="btn btn-danger" value="cancel" name="cancel">Cancel</button>
+                <button type="submit" class="btn btn-outline-success" value="update" name="update">Submit</button>
+                <button type=" submit" class="btn btn-outline-danger" value="cancel" name="cancel">Cancel</button>
                 <br> <br>
             </form>
 

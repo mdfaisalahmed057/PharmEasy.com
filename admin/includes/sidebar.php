@@ -34,7 +34,7 @@
             <li class="nav-item ">
                 <a class="nav-link" href="admin.php">
                     <span data-feather="user"></span>
-                    Add new admin
+                    Admin
                 </a>
             </li>
         </ul>

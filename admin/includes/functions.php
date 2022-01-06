@@ -263,9 +263,6 @@ function edit_admin($id)
         $lname = $_POST['admin_lname'];
         $email = $_POST['admin_email'];
         $check = check_email_admin($email);
-        if (empty($check[0]['admin_email'])) {
-            echo "empty";
-        }
         if ($check == 0) {
             $query = "UPDATE admin SET admin_email='$email' ,admin_fname='$fname' ,admin_lname='$lname'  WHERE admin_id= '$id'";
             single_query($query);
@@ -286,5 +283,49 @@ function check_email_admin($email)
         return $data;
     } else {
         return 0;
+    }
+}
+function add_admin()
+{
+    if (isset($_POST['add_admin'])) {
+        $fname = $_POST['admin_fname'];
+        $lname = $_POST['admin_lname'];
+        $email = $_POST['admin_email'];
+        $password = $_POST['admin_password'];
+        $check = check_email_admin($email);
+        if ($check == 0) {
+            $query = "INSERT INTO admin (admin_fname, admin_lname, admin_email, admin_password) 
+            VALUES ('$fname','$lname','$email','$password')";
+            single_query($query);
+            get_redirect("admin.php");
+        } else {
+            $_SESSION['message'] = "emailErr";
+            get_redirect("admin.php");
+        }
+    } elseif (isset($_POST['admin_cancel'])) {
+        get_redirect("admin.php");
+    }
+}
+function delete_admin()
+{
+    if (isset($_GET['delete'])) {
+        $adminId = $_GET['delete'];
+        $query = "DELETE FROM admin WHERE admin_id ='$adminId'";
+        $run = single_query($query);
+        get_redirect("admin.php");
+    }
+}
+function search_admin()
+{
+    if (isset($_GET['search_admin'])) {
+        $email = $_GET['search_admin_email'];
+        $query = "SELECT admin_id ,admin_fname ,admin_lname ,admin_email FROM admin WHERE admin_email='$email'";
+        $data = query($query);
+        if ($data) {
+            return $data;
+        } else {
+            $_SESSION['message'] = "noResult";
+            return;
+        }
     }
 }

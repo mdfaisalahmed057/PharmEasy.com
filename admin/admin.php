@@ -43,18 +43,19 @@ include "includes/head.php";
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Email</th>
+
                 </thead>
 
                 <tbody>
                     <?php
                     $data = all_admins();
-                    delete_user();
-                    if (isset($_GET['search_user'])) {
-                        $query = search_user();
-                        if (isset($query)) {
-                            $data = $dat;
+                    delete_admin();
+                    if (isset($_GET['search_admin'])) {
+                        $query = search_admin();
+                        if (!empty($query)) {
+                            $data = $query;
                         } else {
-                            get_redirect("customers.php");
+                            get_redirect("admin.php");
                         }
                     }
                     $num = sizeof($data);
@@ -77,15 +78,19 @@ include "includes/head.php";
                 </tbody>
             </table>
         </div>
+        <button type="button" class="btn btn-primary "><a style="text-decoration: none; color:white;" href="admin.php?add=1"> &nbsp;&nbsp;Add&nbsp;&nbsp;</a></button>
+        <br><br>
         <?php
-        edit_admin($_SESSION['admin_id']);
 
+
+        edit_admin($_SESSION['admin_id']);
         if (isset($_GET['edit'])) {
             $_SESSION['admin_id'] = $_GET['edit'];
             $data = get_admin($_SESSION['admin_id']);
+
         ?>
             <br>
-            <h2>Edit Customer Details</h2>
+            <h2>Edit Admin Details</h2>
             <form action="admin.php" method="POST">
                 <div class="form-group">
                     <label>First name</label>
@@ -105,6 +110,49 @@ include "includes/head.php";
                     <div class="form-text">please enter the email in format : example@gmail.com.</div>
                 </div>
                 <button type="submit" class="btn btn-primary" value="update" name="admin_update">Submit</button>
+                <button type=" submit" class="btn btn-danger" value="cancel" name="admin_cancel">Cancel</button>
+                <br> <br>
+            </form>
+
+        <?php
+        }
+        add_admin();
+        if (isset($_GET['add'])) {
+
+        ?>
+            <h2>Add new Admin </h2>
+            <form action="admin.php" method="POST">
+                <div class="form-group">
+                    <label>First name</label>
+                    <input pattern="[A-Za-z_]{1,15}" type="text" class="form-control" placeholder="First name" name="admin_fname">
+                    <div class="form-text">please enter the first name in range(1-30) character/s , special character & numbers not allowed !</div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="validationTooltip01">Last name</label>
+                    <input pattern="[A-Za-z_]{1,15}" id="validationTooltip01" type="text" class="form-control" placeholder="Last name" name="admin_lname">
+                    <div class="form-text">please enter the last name in range(1-30) character/s , special character & numbers not allowed !</div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" name="admin_email">
+                    <div class="form-text">please enter the email in format : example@gmail.com.</div>
+                </div><br>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" pattern="^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$" class="form-control" placeholder="Password" name="admin_password">
+                    <div class="form-text">
+                        <ul>
+                            <li>Must be a minimum of 8 characters</li>
+                            <li>Must contain at least 1 number</li>
+                            <li>Must contain at least one uppercase character</li>
+                            <li>Must contain at least one lowercase character</li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" value="update" name="add_admin">Submit</button>
                 <button type=" submit" class="btn btn-danger" value="cancel" name="admin_cancel">Cancel</button>
                 <br> <br>
             </form>

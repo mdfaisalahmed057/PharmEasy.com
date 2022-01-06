@@ -54,7 +54,7 @@ include "includes/head.php";
                     if (isset($_GET['search_user'])) {
                         $query = search_user();
                         if (isset($query)) {
-                            $data = $dat;
+                            $data = $query;
                         } else {
                             get_redirect("customers.php");
                         }

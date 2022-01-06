@@ -15,9 +15,9 @@ include "includes/head.php"
             if (isset($data)) {
                 $num = sizeof($data);
                 for ($i = 0; $i < $num; $i++) { ?>
-                    <div class="col-sm-2" id="cards" style="width: 20.45rem;">
+                    <div class="col-sm-2" id="cards" style="width: 20.45rem; ">
                         <div class="card border border-warning">
-                            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top">
+                            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
                                 <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>
@@ -43,7 +43,7 @@ include "includes/head.php"
                     ?>
                         <div class="col-sm-2" id="cards" style="width: 20.45rem;">
                             <div class="card border border-warning">
-                                <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top">
+                                <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
                                     <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>
@@ -73,7 +73,7 @@ include "includes/head.php"
                 ?>
                     <div class="col-sm-2" id="cards" style="width: 20.45rem;">
                         <div class="card border border-warning">
-                            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top">
+                            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
                                 <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>

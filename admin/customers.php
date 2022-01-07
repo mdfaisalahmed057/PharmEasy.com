@@ -58,6 +58,8 @@ include "includes/head.php";
                         } else {
                             get_redirect("customers.php");
                         }
+                    } elseif (isset($_GET['id'])) {
+                        $data = get_user_details();
                     }
                     $num = sizeof($data);
                     for ($i = 0; $i < $num; $i++) {

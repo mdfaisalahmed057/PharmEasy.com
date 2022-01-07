@@ -68,6 +68,8 @@ include "includes/head.php";
                         } else {
                             get_redirect("products.php");
                         }
+                    } elseif (isset($_GET['id'])) {
+                        $data = get_item_details();
                     }
                     $num = sizeof($data);
                     for ($i = 0; $i < $num; $i++) {

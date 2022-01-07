@@ -329,3 +329,55 @@ function search_admin()
         }
     }
 }
+function all_orders()
+{
+    $query = "SELECT * FROM orders";
+    $data = query($query);
+    return $data;
+}
+function search_order()
+{
+    if (isset($_GET['search_order'])) {
+        $id = $_GET['search_order_id'];
+        $query = "SELECT * FROM orders WHERE order_id='$id'";
+        $data = query($query);
+        if ($data) {
+            return $data;
+        } else {
+            $_SESSION['message'] = "noResult";
+            return;
+        }
+    }
+}
+function delete_order()
+{
+    if (isset($_GET['delete'])) {
+        $order_id = $_GET['delete'];
+        $query = "DELETE FROM orders WHERE order_id ='$order_id'";
+        $run = single_query($query);
+        get_redirect("orders.php");
+    } elseif (isset($_GET['done'])) {
+        $order_id = $_GET['done'];
+        $query = "UPDATE orders SET order_status = 1 WHERE order_id='$order_id'";
+        single_query($query);
+        get_redirect("orders.php");
+    }
+}
+function get_item_details()
+{
+    if ($_GET['id']) {
+        $id = $_GET['id'];
+        $query = "SELECT * FROM item WHERE item_id=$id";
+        $data = query($query);
+        return $data;
+    }
+}
+function get_user_details()
+{
+    if ($_GET['id']) {
+        $id = $_GET['id'];
+        $query = "SELECT * FROM user WHERE user_id=$id";
+        $data = query($query);
+        return $data;
+    }
+}

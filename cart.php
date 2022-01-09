@@ -5,14 +5,7 @@ include "includes/head.php"
 <body>
     <?php
     include "includes/header.php";
-    // echo '<pre>';
-    // print_r($_SESSION['cart']);
-    // echo '</pre>';
-    // echo 1;
-    // $data = get_cart();
-    // echo '<pre>';
-    // print_r($data);
-    // echo '</pre>';
+
     ?>
 
 
@@ -27,9 +20,6 @@ include "includes/head.php"
     <!-- PRODUCTS-->
     <div class="container-fluid">
         <?php
-        echo '<pre>';
-        print_r($_SESSION['cart']);
-        echo '</pre>';
         if (!empty($_SESSION['cart'])) {
             echo 1;
             $data = get_cart();

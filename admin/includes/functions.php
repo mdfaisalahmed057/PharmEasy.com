@@ -1,5 +1,30 @@
 <?php
-session_start();
+$connection = mysqli_connect("localhost", "root", "", "PharmEasy");
+// $connection = mysqli_connect("localhost", "id18232906_pharmeasy_1", "EsIXy?]3b4EdY8H(", "id18232906_pharmeasy");
+
+function query($query)
+{
+    global $connection;
+    $run = mysqli_query($connection, $query);
+    if ($run) {
+        while ($row = $run->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
+    } else {
+        return 0;
+    }
+}
+function single_query($query)
+{
+    global $connection;
+    $run = mysqli_query($connection, $query);
+    if ($run) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
 function post_redirect($url)
 {
     ob_start();
@@ -13,29 +38,7 @@ function get_redirect($url)
     window.location.href = '$url'; 
     </script>";
 }
-function query($query)
-{
-    $connection = mysqli_connect("localhost", "root", "", "PharmEasy");
-    $run = mysqli_query($connection, $query);
-    if ($run) {
-        while ($row = $run->fetch_assoc()) {
-            $data[] = $row;
-        }
-        return $data;
-    } else {
-        return 0;
-    }
-}
-function single_query($query)
-{
-    $connection = mysqli_connect("localhost", "root", "", "PharmEasy");
-    $run = mysqli_query($connection, $query);
-    if ($run) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
+
 function login()
 {
     if (isset($_POST['login'])) {

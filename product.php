@@ -51,7 +51,10 @@ include "includes/head.php"
 
             <?php
             }
-            $user = get_user($_SESSION['user_id']);
+            if (isset($_SESSION['user_id'])) {
+              $user = get_user($_SESSION['user_id']);
+            }
+
             ?>
             <p class="card-text">
               <span style="color: blue;">Deliver to :</span>
@@ -84,7 +87,7 @@ include "includes/head.php"
   </div>
   </div>
   <?php
-  include "footer.php"
+  include "includes/footer.php"
   ?>
 </body>
 

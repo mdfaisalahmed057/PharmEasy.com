@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "includes/functions.php";
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-success">

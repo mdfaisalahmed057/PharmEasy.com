@@ -1,6 +1,5 @@
 <?php
 include "includes/head.php";
-session_start();
 ?>
 
 <body>

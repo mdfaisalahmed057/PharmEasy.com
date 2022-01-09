@@ -5,14 +5,14 @@ include "includes/head.php"
 <body>
 
     <?php
-    session_start();
+  
     include "includes/header.php";
 
     ?>
     <div class="container-fluid ">
         <div class="row">
             <?php
-            if (isset($data)) {
+            if (!empty($data)) {
                 $num = sizeof($data);
                 for ($i = 0; $i < $num; $i++) { ?>
                     <div class="col-sm-2" id="cards" style="width: 20.45rem; ">

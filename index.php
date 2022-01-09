@@ -6,9 +6,9 @@ include "includes/head.php"
   <!----------------         carousel                     --------->
 
   <?php
-  session_start();
+
   include "includes/header.php";
-  ?>  
+  ?>
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -50,7 +50,7 @@ include "includes/head.php"
       <div class="col-sm-4">
         <div class="card border border-warning">
           <div class="card-body">
-            <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
+            <img src="images/macine.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
             <h5 class="card-title">Medicine</h5>
             <p class="card-text">All products that belongs to Medicine .</p>
             <a href="search.php?cat=medicine" class="btn btn-success">Go to Medicine</a>
@@ -60,9 +60,9 @@ include "includes/head.php"
       <div class="col-sm-4">
         <div class="card border border-warning">
           <div class="card-body">
-            <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
+            <img src="images/macine.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
             <h5 class="card-title">self care </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">All products that belongs to Self care .</p>
             <a href="search.php?cat=self-care" class="btn btn-success">Go self care </a>
           </div>
         </div>
@@ -71,9 +71,9 @@ include "includes/head.php"
         <div class="card border border-warning">
           <div class="card-body">
 
-            <img src="images/macine.png" style="width: 25rem;" class="d-block " alt="...">
+            <img src="images/macine.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
             <h5 class="card-title">machines</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text">All products that belongs to Machine .</p>
             <a href="search.php?cat=machine" class="btn btn-success">Go machines</a>
           </div>
         </div>
@@ -95,7 +95,7 @@ include "includes/head.php"
       ?>
         <div class="col-sm-2" id="cards" style="width: 20.45rem;">
           <div class="card border border-warning">
-            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top">
+            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
             <div class="card-body">
               <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
               <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>

@@ -1,5 +1,7 @@
 <?php
-session_start();
+$connection = mysqli_connect("localhost", "root", "", "PharmEasy");
+// $connection = mysqli_connect("localhost", "id18232906_pharmeasy_1", "EsIXy?]3b4EdY8H(", "id18232906_pharmeasy");
+
 function post_redirect($url)
 {
     ob_start();
@@ -15,26 +17,28 @@ function get_redirect($url)
 }
 function query($query)
 {
-    $connection =
-        mysqli_connect("localhost", "root", "", "PharmEasy");
+    global $connection;
     $run = mysqli_query($connection, $query);
     if ($run) {
         while ($row = $run->fetch_assoc()) {
             $data[] = $row;
         }
-        return $data;
+        if (!empty($data)) {
+            return $data;
+        } else {
+            return "";
+        }
     } else {
         return 0;
     }
 }
 function insert($query)
 {
-    $connection =
-        mysqli_connect("localhost", "root", "", "PharmEasy");
+    global $connection;
     if (mysqli_query($connection, $query)) {
         return "done";
     } else {
-        return "nah";
+        die("no data" . mysqli_connect_error($connection));
     }
 }
 function login()
@@ -97,26 +101,28 @@ function singUp()
 }
 function message()
 {
-    if ($_SESSION['message'] == "signUpErr") {
-        echo "   <div class='alert alert-danger' role='alert'>
+    if (isset($_SESSION['message'])) {
+        if ($_SESSION['message'] == "signUpErr") {
+            echo "   <div class='alert alert-danger' role='alert'>
         please enter the email and the password in correct form !!!
       </div>";
-        unset($_SESSION['message']);
-    } elseif ($_SESSION['message'] == "loginErr") {
-        echo "   <div class='alert alert-danger' role='alert'>
+            unset($_SESSION['message']);
+        } elseif ($_SESSION['message'] == "loginErr") {
+            echo "   <div class='alert alert-danger' role='alert'>
         The email or the password is incorrect !!!
       </div>";
-        unset($_SESSION['message']);
-    } elseif ($_SESSION['message'] == "usedEmail") {
-        echo "   <div class='alert alert-danger' role='alert'>
+            unset($_SESSION['message']);
+        } elseif ($_SESSION['message'] == "usedEmail") {
+            echo "   <div class='alert alert-danger' role='alert'>
         This email is already used !!!
       </div>";
-        unset($_SESSION['message']);
-    } elseif ($_SESSION['message'] == "wentWrong") {
-        echo "   <div class='alert alert-danger' role='alert'>
+            unset($_SESSION['message']);
+        } elseif ($_SESSION['message'] == "wentWrong") {
+            echo "   <div class='alert alert-danger' role='alert'>
         Something went wrong !!!
       </div>";
-        unset($_SESSION['message']);
+            unset($_SESSION['message']);
+        }
     }
 }
 function search()

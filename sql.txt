@@ -1,6 +1,0 @@
-create user table (name,password,phone_number,user_id,email){
-CREATE TABLE `PharmEasy`.`user` ( `user_name` VARCHAR(20) NOT NULL , `phone_number` INT(10) NOT NULL , `email` VARCHAR(50) NOT NULL , `password` VARCHAR(50) NOT NULL , `user_id` INT(3) NOT NULL AUTO_INCREMENT , PRIMARY KEY (`user_id`)) ENGINE = InnoDB;
-
-ALTER TABLE `user` ADD `user_fname` VARCHAR(20) NOT NULL AFTER `user_id`;
-ALTER TABLE `user` CHANGE `user_name` `user_Lname` VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
-}

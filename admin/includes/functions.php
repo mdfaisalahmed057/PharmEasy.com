@@ -91,6 +91,11 @@ function message()
         There is no product with this name !!!
       </div>";
         unset($_SESSION['message']);
+    } elseif ($_SESSION['message'] == "noResultAdmin") {
+        echo "   <div class='alert alert-danger' role='alert'>
+        There is no admin with this email !!!
+      </div>";
+        unset($_SESSION['message']);
     }
 }
 function all_users()
@@ -335,12 +340,15 @@ function search_admin()
 {
     if (isset($_GET['search_admin'])) {
         $email = $_GET['search_admin_email'];
+        if (empty($email)) {
+            return;
+        }
         $query = "SELECT admin_id ,admin_fname ,admin_lname ,admin_email FROM admin WHERE admin_email='$email'";
         $data = query($query);
         if ($data) {
             return $data;
         } else {
-            $_SESSION['message'] = "noResult";
+            $_SESSION['message'] = "noResultAdmin";
             return;
         }
     }

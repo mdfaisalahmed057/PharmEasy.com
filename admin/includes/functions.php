@@ -148,6 +148,9 @@ function search_user()
 {
     if (isset($_GET['search_user'])) {
         $email = $_GET['search_user_email'];
+        if (empty($email)) {
+            return;
+        }
         $query = "SELECT user_id ,user_fname ,user_lname ,email ,user_address FROM user WHERE email='$email'";
         $data = query($query);
         if ($data) {

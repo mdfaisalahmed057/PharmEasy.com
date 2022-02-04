@@ -51,12 +51,12 @@ include "includes/head.php";
                     <?php
                     $data = all_orders();
                     delete_order();
-                    if (isset($_GET['search_admin'])) {
-                        $query = search_admin();
+                    if (isset($_GET['search_order'])) {
+                        $query = search_order();
                         if (!empty($query)) {
                             $data = $query;
                         } else {
-                            get_redirect("admin.php");
+                            get_redirect("orders.php");
                         }
                     }
                     $num = sizeof($data);
@@ -86,10 +86,22 @@ include "includes/head.php";
                             <td>
                                 <button type="button" class="btn  btn-outline-danger"><a style="text-decoration: none; color:black;" href="orders.php?delete=<?php echo $data[$i]['order_id'] ?>">Delete</a></button>
                             </td>
-                            <td>
-                                <button type="button" class="btn  btn-outline-success"><a style="text-decoration: none; color:black;" href="orders.php?done=<?php echo $data[$i]['order_id'] ?>">&nbsp;Done&nbsp;</a></button>
 
-                            </td>
+                            <?php if ($data[$i]['order_status'] == 1) {
+                            ?>
+                                <td>
+                                    <button type="button" class="btn  btn-outline-danger"><a style="text-decoration: none; color:black;" href="orders.php?undo=<?php echo $data[$i]['order_id'] ?>">&nbsp;Undo&nbsp;</a></button>
+                                </td>
+                            <?php
+                            } else {
+                            ?>
+                                <td>
+                                    <button type="button" class="btn  btn-outline-success"><a style="text-decoration: none; color:black;" href="orders.php?done=<?php echo $data[$i]['order_id'] ?>">&nbsp;Done&nbsp;</a></button>
+
+                                </td>
+                            <?php
+                            }
+                            ?>
                             <td>
                                 <button type="button" class="btn  btn-outline-info"><a style="text-decoration: none; color:black;" href="customers.php?id=<?php echo $data[$i]['user_id'] ?>"> &nbsp;User details&nbsp; </a></button>
                             </td>

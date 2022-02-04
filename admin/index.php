@@ -46,7 +46,7 @@ include "includes/head.php";
         <div class="card" style="width: 25rem;margin-top: 20px ;">
           <img class="card-img-top" src="../images/user.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
           <div class="card-body">
-            <h5 class="card-title">CAdmin</h5>
+            <h5 class="card-title">Admin</h5>
             <p class="card-text">Display and modify the admins details.</p>
             <a href="admin.php" class="btn btn-primary">Go to admin page</a>
           </div>

@@ -81,6 +81,11 @@ function message()
         There is a product with the same name .
       </div>";
         unset($_SESSION['message']);
+    } elseif ($_SESSION['message'] == "noResultOrder") {
+        echo "   <div class='alert alert-danger' role='alert'>
+        There is no order with this ID !!!
+      </div>";
+        unset($_SESSION['message']);
     }
 }
 function all_users()
@@ -342,12 +347,15 @@ function search_order()
 {
     if (isset($_GET['search_order'])) {
         $id = $_GET['search_order_id'];
+        if (empty($id)) {
+            return;
+        }
         $query = "SELECT * FROM orders WHERE order_id='$id'";
         $data = query($query);
         if ($data) {
             return $data;
         } else {
-            $_SESSION['message'] = "noResult";
+            $_SESSION['message'] = "noResultOrder";
             return;
         }
     }
@@ -362,6 +370,11 @@ function delete_order()
     } elseif (isset($_GET['done'])) {
         $order_id = $_GET['done'];
         $query = "UPDATE orders SET order_status = 1 WHERE order_id='$order_id'";
+        single_query($query);
+        get_redirect("orders.php");
+    } elseif (isset($_GET['undo'])) {
+        $order_id = $_GET['undo'];
+        $query = "UPDATE orders SET order_status = 0 WHERE order_id='$order_id'";
         single_query($query);
         get_redirect("orders.php");
     }

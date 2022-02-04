@@ -86,6 +86,11 @@ function message()
         There is no order with this ID !!!
       </div>";
         unset($_SESSION['message']);
+    } elseif ($_SESSION['message'] == "noResultItem") {
+        echo "   <div class='alert alert-danger' role='alert'>
+        There is no product with this name !!!
+      </div>";
+        unset($_SESSION['message']);
     }
 }
 function all_users()
@@ -220,7 +225,7 @@ function search_item()
         if ($data) {
             return $data;
         } else {
-            $_SESSION['message'] = "noResult";
+            $_SESSION['message'] = "noResultItem";
             return;
         }
     }

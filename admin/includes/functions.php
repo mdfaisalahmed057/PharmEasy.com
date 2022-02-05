@@ -413,3 +413,13 @@ function get_user_details()
         return $data;
     }
 }
+function check_admin($id)
+{
+    $query = "SELECT admin_id FROM admin where admin_id='$id'";
+    $row = query($query);
+    if (empty($row)) {
+        return 0;
+    } else {
+        return 1;
+    }
+}

@@ -7,9 +7,11 @@ include "includes/functions.php"
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
             <?php
-            if (isset(
-                $_SESSION['admin_id']
-            )) {
+            if (isset($_SESSION['admin_id'])) {
+                $check_admin = check_admin($_SESSION['admin_id']);
+                if ($check_admin == 0) {
+                    post_redirect("logout.php");
+                }
             ?>
                 <a class="nav-link px-3" href="logout.php">Sign out</a>
             <?php

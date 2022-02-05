@@ -5,7 +5,7 @@ include "includes/head.php"
 <body>
 
     <?php
-  
+
     include "includes/header.php";
 
     ?>
@@ -94,6 +94,7 @@ include "includes/head.php"
         </div>
     </div>
 
+    <!-- FOOTER -->
     <?php
     include "includes/footer.php"
     ?>

@@ -9,6 +9,10 @@ include "includes/head.php";
     <img src="images/final.jpg" alt="" style="width:30rem; margin-left: 400px;margin-top: 10px ">
     <?php
     add_order();
+    ?>
+    <!-- FOOTER -->
+    <?php
     include "includes/footer.php"
     ?>
+
 </body>

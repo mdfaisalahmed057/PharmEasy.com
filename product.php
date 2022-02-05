@@ -53,6 +53,7 @@ include "includes/head.php"
             }
             if (isset($_SESSION['user_id'])) {
               $user = get_user($_SESSION['user_id']);
+              echo $_SESSION['user_id'];
             }
 
             ?>

@@ -30,10 +30,16 @@ include "includes/functions.php";
                 </li>
             </ul>
             <?php
+
             if (!isset($_SESSION['user_id'])) {
                 echo "<a class='nav-link' href='login.php' style='color: white; font-size:bold;'> Log in</a>";
             } else {
-                echo "<a class='nav-link' href='logout.php' style='color: white; font-size:bold;'> Log out</a>  ";
+                $check_user_id = check_user($_SESSION['user_id']);
+                if ($check_user_id == 1) {
+                    echo "<a class='nav-link' href='logout.php' style='color: white; font-size:bold;'> Log out</a>  ";
+                }else{
+                    post_redirect("logout.php");
+                }
             }
             $data = search();
             ?>

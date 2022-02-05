@@ -47,9 +47,13 @@ function login()
 
         $userEmail = $_POST['userEmail'];
         $password = $_POST['password'];
+        if (empty($userEmail) OR empty($password)) {
+            $_SESSION['message'] = "loginErrEmpty";
+            post_redirect("login.php");
+        }
         $query = "SELECT  email , user_id , user_password FROM user WHERE email= '$userEmail' ";
         $data = query($query);
-        if ($data == 0) {
+        if (empty($data)) {
             $_SESSION['message'] = "loginErr";
             post_redirect("login.php");
         } elseif ($password == $data[0]['user_password'] and  $userEmail == $data[0]['email']) {
@@ -120,6 +124,11 @@ function message()
         } elseif ($_SESSION['message'] == "wentWrong") {
             echo "   <div class='alert alert-danger' role='alert'>
         Something went wrong !!!
+      </div>";
+            unset($_SESSION['message']);
+        } elseif ($_SESSION['message'] == "loginErrEmpty") {
+            echo "   <div class='alert alert-danger' role='alert'>
+        please don't leave anything empty .
       </div>";
             unset($_SESSION['message']);
         }
@@ -259,5 +268,15 @@ function add_order()
         }
         unset($_SESSION['cart']);
         get_redirect("final.php");
+    }
+}
+function check_user($id)
+{
+    $query = "SELECT user_id FROM user where user_id='$id'";
+    $row = query($query);
+    if (empty($row)) {
+        return 0;
+    } else {
+        return 1;
     }
 }

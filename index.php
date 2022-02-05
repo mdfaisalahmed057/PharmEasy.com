@@ -50,7 +50,7 @@ include "includes/head.php"
       <div class="col-sm-4">
         <div class="card border border-warning">
           <div class="card-body">
-            <img src="images/macine.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
+            <img src="images/Medicine.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
             <h5 class="card-title">Medicine</h5>
             <p class="card-text">All products that belongs to Medicine .</p>
             <a href="search.php?cat=medicine" class="btn btn-success">Go to Medicine</a>
@@ -60,7 +60,7 @@ include "includes/head.php"
       <div class="col-sm-4">
         <div class="card border border-warning">
           <div class="card-body">
-            <img src="images/macine.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
+            <img src="images/self-care.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
             <h5 class="card-title">self care </h5>
             <p class="card-text">All products that belongs to Self care .</p>
             <a href="search.php?cat=self-care" class="btn btn-success">Go self care </a>
@@ -71,7 +71,7 @@ include "includes/head.php"
         <div class="card border border-warning">
           <div class="card-body">
 
-            <img src="images/macine.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
+            <img src="images/machine.png" style="width:305.4px ; height:305px ;" class="d-block " alt="...">
             <h5 class="card-title">machines</h5>
             <p class="card-text">All products that belongs to Machine .</p>
             <a href="search.php?cat=machine" class="btn btn-success">Go machines</a>

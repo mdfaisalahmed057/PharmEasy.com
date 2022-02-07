@@ -10,6 +10,7 @@ include "includes/head.php";
     <?php
     add_order();
     ?>
+    <br>
     <!-- FOOTER -->
     <?php
     include "includes/footer.php"

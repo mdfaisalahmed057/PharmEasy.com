@@ -21,7 +21,6 @@ include "includes/head.php"
     <div class="container-fluid">
         <?php
         if (!empty($_SESSION['cart'])) {
-            echo 1;
             $data = get_cart();
             delete_from_cart();
             $num = sizeof($data);
@@ -57,10 +56,6 @@ include "includes/head.php"
                                     <small style="color: rgb(80, 223, 80);font-weight: bold;padding:10px ;"><?php echo $data[$i][0]['item_brand'] ?></small><br>
                                     <small class="text-muted" style="font-weight: bold;">Quantity </small>
                                     <small style="color: rgb(80, 223, 80);font-weight: bold;padding:10px ;"><?php echo $_SESSION['cart'][$i]['quantity'] ?></small><br><br>
-                                    <?php if ($data[$i][0]['item_quantity'] != 0) { ?>
-
-                                        <a href="product.php?product_id=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-outline-warning"> Edit</a>
-                                    <?php } ?>
                                     <a href="cart.php?delete=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-outline-danger">Delete</a>
 
 

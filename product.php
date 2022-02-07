@@ -46,16 +46,12 @@ include "includes/head.php"
               <h6 style="color: rgb(58, 211, 58);">In Stock</h6>
             <?php
             } else {
+              $out = 1;
             ?>
               <small style="color: red;">Out Of Stock</small>
 
             <?php
             }
-            if (isset($_SESSION['user_id'])) {
-              $user = get_user($_SESSION['user_id']);
-              echo $_SESSION['user_id'];
-            }
-
             ?>
             <p class="card-text">
               <span style="color: blue;">Deliver to :</span>
@@ -67,18 +63,24 @@ include "includes/head.php"
               }
               ?>
             </p>
-            <ul class="list-group list-group-flush">
-              <form action="product.php" method="GET">
-                <div class="form-group">
-                  <input value="1" type="number" class="form-control" placeholder="" name="quantity" min="1" max="999">
-                </div>
-                <br>
-                <button type="submit" value="buy" name="buy" class="btn btn-warning " style="margin: 5px;">&nbsp; Buy Now &nbsp;</button>
-                <br>
-                <button type="submit" value="" name="cart" class="btn btn-warning " style="margin: 5px;">Add to Cart</button>
-              </form>
-            </ul>
+            <?php
+            if ($out != 1) {
+            ?>
 
+              <ul class="list-group list-group-flush">
+                <form action="product.php" method="GET">
+                  <div class="form-group">
+                    <input value="1" type="number" class="form-control" placeholder="" name="quantity" min="1" max="999">
+                  </div>
+                  <br>
+                  <button type="submit" value="buy" name="buy" class="btn btn-warning " style="margin: 5px;">&nbsp; Buy Now &nbsp;</button>
+                  <br>
+                  <button type="submit" value="" name="cart" class="btn btn-warning " style="margin: 5px;">Add to Cart</button>
+                </form>
+              </ul>
+            <?php
+            }
+            ?>
           </div>
 
         </div>

@@ -56,7 +56,7 @@ include "includes/head.php"
             <a href="search.php?cat=medicine"> <img src="images/midicin.jpg" style="width:150.4px ; height:225px ;" class="d-block " alt="...">
               <br></a>
             <button class="rounded-2" style="background-color: LightSalmon;
-           color: white; font-weight: bold; border-color: LightSalmon;margin:10px;">book now </button>
+           color: white; font-weight: bold; border-color: LightSalmon;margin:10px;">Go To Medicine </button>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@ include "includes/head.php"
             <img src="images/self-care.jpg" style=" height:200px ;">
             <br><br><br>
             <a href="search.php?cat=self-care"> <button class="rounded-2" style="background-color: SteelBlue;
-           color: white; font-weight: bold; border-color: PowderBlue;margin:10px;">Go To Self care</button></a>
+           color: white; font-weight: bold; border-color: PowderBlue;margin:10px;">Go To Self Care</button></a>
           </div>
         </div>
       </div>

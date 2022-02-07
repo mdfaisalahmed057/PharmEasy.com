@@ -32,7 +32,7 @@ function query($query)
         return 0;
     }
 }
-function insert($query)
+function single_query($query)
 {
     global $connection;
     if (mysqli_query($connection, $query)) {
@@ -47,7 +47,7 @@ function login()
 
         $userEmail = $_POST['userEmail'];
         $password = $_POST['password'];
-        if (empty($userEmail) OR empty($password)) {
+        if (empty($userEmail) or empty($password)) {
             $_SESSION['message'] = "loginErrEmpty";
             post_redirect("login.php");
         }
@@ -91,7 +91,7 @@ function singUp()
             }
         }
         $query = "INSERT INTO user (email ,user_fname ,user_lname , user_address,user_password ) VALUES('$email', '$fname' ,'$lname','$address' ,'$passwd')";
-        $queryStatus = insert($query);
+        $queryStatus = single_query($query);
         $query = "SELECT user_id FROM user WHERE email='$email' ";
         $data = query($query);
         $_SESSION['user_id'] = $data[0]['user_id'];
@@ -262,9 +262,17 @@ function add_order()
             $item_id = $_SESSION['cart'][$i]['item_id'];
             $user_id = $_SESSION['cart'][$i]['user_id'];
             $quantity = $_SESSION['cart'][$i]['quantity'];
-            $query = "INSERT INTO orders (user_id,item_id,order_quantity,order_date) 
-            VALUES('$user_id','$item_id','$quantity','$date')";
-            $data =   insert($query);
+            if ($quantity == 0) {
+                return;
+            } else {
+                $query = "INSERT INTO orders (user_id,item_id,order_quantity,order_date) 
+                VALUES('$user_id','$item_id','$quantity','$date')";
+                $data =   single_query($query);
+                $item = get_item_id($item_id);
+                $new_quantity = $item[0]['item_quantity'] - $quantity;
+                $query = "UPDATE item SET item_quantity='$new_quantity' WHERE item_id = '$item_id'";
+                single_query($query);
+            }
         }
         unset($_SESSION['cart']);
         get_redirect("final.php");
@@ -279,4 +287,10 @@ function check_user($id)
     } else {
         return 1;
     }
+}
+function get_item_id($id)
+{
+    $query = "SELECT * FROM item WHERE item_id= '$id'";
+    $data = query($query);
+    return $data;
 }

@@ -21,9 +21,10 @@
                 <span class="glyphicon glyphicon-lock"></span>
                 <h4>Social Media</h4>
                 <br>
-                <a href="https://www.facebook.com/pharmeasy/" style="color: white; margin-right :20px;"> <i class="fab fa-facebook-square fa-3x"></i></a>
-                <a href="https://www.instagram.com/pharmeasyapp/" style="color: white; margin-right :20px;"><i class="fab fa-instagram-square fa-3x"></i></a>
-                <a href="https://twitter.com/pharmeasyapp/" style="color: white; margin-right :20px;"><i class="fab fa-twitter-square fa-3x"></i></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.facebook.com/pharmeasy/" style="color: white; margin-right :20px;"> <i class="fab fa-facebook fa-3x">&nbsp;</i></a>
+                <a href="https://www.instagram.com/pharmeasyapp/" style="color: white; margin-right :20px;"><i class="fab fa-instagram fa-3x">&nbsp;</i></a>
+                <a href="https://twitter.com/pharmeasyapp/" style="color: white; margin-right :20px;"><i class="fab fa-twitter fa-3x"></i></a>
             </div>
         </div>
         <br><br>
@@ -59,6 +60,7 @@
         <img src="images/gpay.png" width="70px" style="margin-right :20px;">
         <img src="images/amazon-pay.png" width="70px" style="margin-right :20px;">
         <img src="images/Phonepe.png" width="40px" style="margin-right :20px;">
+        <br><br>
     </div>
 </strong>
 <!-- Copyright -->

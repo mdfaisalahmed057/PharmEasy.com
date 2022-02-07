@@ -22,7 +22,7 @@ include "includes/head.php"
                                 <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
                                 <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>
                                 <small class="text-muted" style="font-weight: bold;">Brand Name: <?php echo $data[$i]['item_brand'] ?></small><br><br>
-                                <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-success">More details</a>
+                                <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-outline-success">More details</a>
 
                             </div>
                         </div>
@@ -48,7 +48,7 @@ include "includes/head.php"
                                     <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
                                     <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>
                                     <small class="text-muted" style="font-weight: bold;">Brand Name: <?php echo $data[$i]['item_brand'] ?></small><br><br>
-                                    <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-success">More details</a>
+                                    <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-outline-success">More details</a>
 
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ include "includes/head.php"
                                 <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
                                 <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>
                                 <small class="text-muted" style="font-weight: bold;">Brand Name: <?php echo $data[$i]['item_brand'] ?></small><br><br>
-                                <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-success">More details</a>
+                                <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-outline-success">More details</a>
 
                             </div>
                         </div>

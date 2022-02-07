@@ -59,9 +59,9 @@ include "includes/head.php"
                                     <small style="color: rgb(80, 223, 80);font-weight: bold;padding:10px ;"><?php echo $_SESSION['cart'][$i]['quantity'] ?></small><br><br>
                                     <?php if ($data[$i][0]['item_quantity'] != 0) { ?>
 
-                                        <a href="product.php?product_id=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-warning"> Edit</a>
+                                        <a href="product.php?product_id=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-outline-warning"> Edit</a>
                                     <?php } ?>
-                                    <a href="cart.php?delete=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-danger">Delete</a>
+                                    <a href="cart.php?delete=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-outline-danger">Delete</a>
 
 
 
@@ -93,9 +93,9 @@ include "includes/head.php"
 
             </div>
             <div style="margin-left: 350px; padding-right: 100px;">
-                <a href="product.php?delete=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-danger btn-lg"> Delete all Products !</a>
+                <a href="product.php?delete=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-outline-danger btn-lg"> Delete all Products !</a>
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <a href="final.php?order=done" class="btn btn-success btn-lg"> &nbsp;Proceed to Buy &nbsp;</a>
+                <a href="final.php?order=done" class="btn btn-outline-success btn-lg"> &nbsp;Proceed to Buy &nbsp;</a>
                 <br><br>
             </div>
         <?php

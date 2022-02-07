@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 07, 2022 at 10:02 AM
+-- Generation Time: Feb 07, 2022 at 06:42 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -40,9 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_fname`, `admin_lname`, `admin_password`) VALUES
-(2, '1000adadmin@gmail.com', '  qer', 'qre', 'a2222222'),
-(3, '3admin@gmail.com', '3', '3', 'a333333333'),
-(4, '5admin@gmail.com', '5', '5', 'a33333333'),
+(4, 'admin@gmail.com', '5', '5', 'admin'),
 (5, '4admin@gmail.com', '4', '4', 'a444444444'),
 (6, '1000adadqwrmin@gmail.com', 'aqda', 'adqwed', '1Aaaaaaaaaa'),
 (8, '100dadqwrmin@gmail.com', 'rtwetf', 'wrtfwf', '1Aaaaaaaaaaa'),
@@ -80,7 +78,7 @@ INSERT INTO `item` (`item_id`, `item_title`, `item_brand`, `item_cat`, `item_det
 (7, '1', 'f', 'machine', '1', '1', '1', 'dettol.jpg', 12, 100),
 (8, '1', 'f', 'machine', '1', '1', '1', 'dettol.jpg', 12, 100),
 (9, '1', 'f', 'machine', '1', '1', '1', 'dettol.jpg', 1, 100),
-(10, '1', 'f', 'machine', '1', '1', '1', 'dettol.jpg', 1, 100),
+(10, 'rrrrrrrr', 'rrrrrrrrrrrr', 'self-care', 'gggg', 'gg', 'gg', 'hair.jpg', 9, 333),
 (11, 'dd', 'dd', 'self-care', 'Size name: 2GB RAM, 32GB Storage Model Name Spark Go 2022 Wireless Carrier Unlocked Brand Tecno Form factor Touch Memory Storage Capacity 32 GB About this item 5000mAh powerful battery with 46 days standby | AI Battery Lab | Ultra Battery Saver 6.52” HD+ Dot notch handy display for great entertainment |120Hz Touch Sampling rate| IPX2 Water Protection Excellent photography with 13MP AI Dual rear camera with dual Flashlight | Portrait mode | Smile Shot| 1080p Time Lapse New Stylish Design with Anti-Oil Fingerprint sensor 8MP selfie camera with microslit front flash | Adjustable brightness feature', 'dd', 'dd', 'dettol.jpg', 233, 2323);
 
 -- --------------------------------------------------------
@@ -97,22 +95,6 @@ CREATE TABLE `orders` (
   `order_date` date NOT NULL,
   `order_status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `item_id`, `user_id`, `order_quantity`, `order_date`, `order_status`) VALUES
-(1, 1, 49, 1, '2022-01-06', 1),
-(4, 3, 49, 3, '2022-01-06', 1),
-(5, 1, 49, 1, '2022-01-06', 0),
-(6, 1, 49, 1, '2022-01-06', 0),
-(7, 1, 49, 3, '2022-01-06', 0),
-(8, 3, 49, 3, '2022-01-06', 0),
-(9, 1, 49, 1, '2022-01-06', 0),
-(10, 1, 49, 1, '2022-01-06', 0),
-(11, 1, 49, 3, '2022-01-06', 0),
-(12, 3, 49, 3, '2022-01-06', 0);
 
 -- --------------------------------------------------------
 
@@ -134,13 +116,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_Lname`, `email`, `user_password`, `user_id`, `user_fname`, `user_address`) VALUES
-('AL-DAGHAN', 'md.taha.ahmed.1@gmail.com', 'mdtahaahmed1', 12, 'MD Taha Ahmed', 'NO.18, 1ST FLOOR, 3RD MAIN, MUNIYELLAPPA LAYOUT, VINAYAKANAGAR, J.P NAGAR, 5TH PHASE BANGALURU, KARNATAKA, INDIA - 560078'),
-('q', '1qdq@gmail.com', 'a11111111', 48, 'w', 'NO.18, 1ST FLOOR, 3RD MAIN, MUNIYELLAPPA LAYOUT, VINAYAKANAGAR, J.P NAGAR, 5TH PHASE BANGALURU, KARNATAKA, INDIA - 560078'),
-('1', '1@gmail.com', 'a11111111', 49, '1', '1'),
-('1', '1@gmail.com', 'a11111111', 50, '1', '1'),
-('1', '1@gmail.com', 'a11111111', 51, '1', '1'),
-('taha', '1@gmail.com', 'a11111111', 52, 'md', '1'),
-('w', '10f@gmail.com', '1', 54, 'w', 'q'),
+('taha', 'user@gmail.com', 'user', 52, 'md', '1'),
 ('1', '1', '1', 55, '1', 'NO.18, 1ST FLOOR, 3RD MAIN, MUNIYELLAPPA LAYOUT, VINAYAKANAGAR, J.P NAGAR, 5TH PHASE BANGALURU, KARNATAKA, INDIA - 560078'),
 ('afd', '1d@gmail.com', '1', 56, 'dfd', 'fd'),
 ('f', '1adf0@gmail.com', '1', 57, 'd', '2'),
@@ -193,7 +169,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `item_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `item_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -215,8 +191,8 @@ ALTER TABLE `user`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

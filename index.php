@@ -9,36 +9,34 @@ include "includes/head.php"
 
   include "includes/header.php";
   ?>
-  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="images/carousel1.jpg" class="d-block w-100  " style="height: 350px;" alt="...">
+        <img src="images/carousel2.jpg" class="d-block w-100" style="height: 270px;">
       </div>
       <div class="carousel-item">
-        <img src="images/carousel2.jpg" class="d-block w-100 " style="height: 350px;" alt="...">
+        <img src="images/carousel3.jpg" class="d-block w-100" style="height: 270px;">
       </div>
       <div class="carousel-item">
-        <img src="images/carousel3.jpg" class="d-block w-100 " style="height: 350px;" alt="...">
+        <img src="images/carousel4.jpg" class="d-block w-100" style="height: 270px;">
       </div>
       <div class="carousel-item">
-        <img src=" images/carousel4.jpg" class="d-block w-100 " style="height: 350px;" alt="...">
+        <img src="images/carousel5.jpg" class="d-block w-100" style="height: 270px;">
       </div>
       <div class="carousel-item">
-        <img src=" images/carousel5.jpg" class="d-block w-100 " style="height: 350px;" alt="...">
+        <img src="images/carousel1.jpg" class="d-block w-100" style="height: 270px;">
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
-
-
   <!----------------       end of carousel                     --------->
   <div class="container-fluid ">
 
@@ -49,21 +47,21 @@ include "includes/head.php"
       <div class="col-sm-3" id="cards">
         <div class="card " style="background-color: AntiqueWhite; height: 70%;">
           <div class="card-body">
-            <strong style="background-color:  LightSteelBlue; color: white ; ;">&nbsp;UPTO 69% OFF&nbsp;</strong>
+            <strong style="background-color:  LightSteelBlue; color: white ; ;">&nbsp;UPTO 50% OFF&nbsp;</strong>
             <strong>
               <h5 style="font-weight:bold; color: rgb(104, 97, 97);"> Medicine Products</h5>
             </strong>
             <a href="search.php?cat=medicine"> <img src="images/midicin.jpg" style="width:150.4px ; height:225px ;" class="d-block " alt="...">
               <br></a>
             <button class="rounded-2" style="background-color: LightSalmon;
-           color: white; font-weight: bold; border-color: LightSalmon;margin:10px;">Go To Medicine </button>
+           color: white; font-weight: bold; border-color: LightSalmon;margin:10px;">Go To Medicine Products</button>
           </div>
         </div>
       </div>
       <div class="col-sm-3" id="cards">
         <div class="card " style="background-color: rgb(93, 179, 207) ;height: 70%; ">
           <div class="card-body">
-            <strong style="background-color:  SlateGray ; color: white ; ;">&nbsp;UPTO 69% OFF&nbsp;</strong>
+            <strong style="background-color:  SlateGray ; color: white ; ;">&nbsp;UPTO 35% OFF&nbsp;</strong>
             <strong>
               <h5 style="font-weight:bold; color: rgb(104, 97, 97);"> Self care Products</h5>
             </strong>

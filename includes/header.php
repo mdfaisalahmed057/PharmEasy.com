@@ -1,7 +1,7 @@
 <?php
 include "includes/functions.php";
 ?>
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d8592;">
     <div class="container-fluid">
         <a href="index.php"> <img src="images/PharmEasy.png" id="image"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" style="color: white; " aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@ include "includes/functions.php";
                 $check_user_id = check_user($_SESSION['user_id']);
                 if ($check_user_id == 1) {
                     echo "<a class='nav-link' href='logout.php' style='color: white; font-size:bold;'> Log out</a>  ";
-                }else{
+                } else {
                     post_redirect("logout.php");
                 }
             }

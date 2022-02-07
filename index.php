@@ -195,12 +195,11 @@ include "includes/head.php"
       </div>
     </div>
     <h1 class="border border-2" style="width: 100%;"> </h1>
-    <!-- FOOTER -->
-    <?php
-    include "includes/footer.php"
-    ?>
   </div>
-
+  <!-- FOOTER -->
+  <?php
+  include "includes/footer.php"
+  ?>
 </body>
 
 </html>

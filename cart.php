@@ -106,14 +106,13 @@ include "includes/head.php"
         <?php
         }
         ?>
-        <!-- FOOTER -->
-        <?php
-        include "includes/footer.php"
-        ?>
+
     </div>
     <!-- end of TOTAL -->
-
-
+    <!-- FOOTER -->
+    <?php
+    include "includes/footer.php"
+    ?>
 
 </body>
 

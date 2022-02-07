@@ -1,10 +1,10 @@
 <br>
 <strong>
-    <div class="container-fluid text-center bg-dark text-white">
+    <div class="container-fluid text-center  text-white" style="background-color: #0d8592;">
         <h2>SERVICES</h2>
         <h4>What we offer</h4>
         <br>
-        <div class="row">
+        <div class=" row">
             <div class="col-sm-4">
                 <span class="glyphicon glyphicon-off"></span>
                 <h4>Good Product</h4>
@@ -61,4 +61,8 @@
         <img src="images/Phonepe.png" width="40px" style="margin-right :20px;">
     </div>
 </strong>
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3 " style="background-color:#086a76;">© 2022 Copyright:
+    <a href="https://pharmeasy.in" target="_blank" style="color: white; text-decoration: none;">Pharmeasy.in</a>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

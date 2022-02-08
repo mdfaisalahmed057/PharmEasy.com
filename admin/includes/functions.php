@@ -96,6 +96,11 @@ function message()
         There is no admin with this email !!!
       </div>";
         unset($_SESSION['message']);
+    } elseif ($_SESSION['message'] == "empty_err") {
+        echo "   <div class='alert alert-danger' role='alert'>
+    please don't leave anything empty !!!
+  </div>";
+        unset($_SESSION['message']);
     }
 }
 function all_users()
@@ -120,6 +125,11 @@ function edit_user($id)
         $lname = $_POST['lname'];
         $email = $_POST['email'];
         $address = $_POST['address'];
+        if (empty($email) or empty($address) or empty($fname) or empty($lname)) {
+            $_SESSION['message'] = "empty_err";
+            get_redirect("customers.php");
+            return;
+        }
         $check = check_email_user($email);
         if ($check == 0) {
             $query = "UPDATE user SET email='$email' ,user_fname='$fname' ,user_lname='$lname' ,user_address='$address' WHERE user_id= '$id'";

@@ -59,7 +59,7 @@ include "includes/functions.php";
                                 </a>
                                 <br>
                                 <br>
-                                <a href="admin/adminLogin.php">
+                                <a href="admin/login.php">
                                     Sign In For Admin
                                 </a>
                             </div>

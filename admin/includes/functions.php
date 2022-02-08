@@ -1,7 +1,7 @@
 <?php
 $connection = mysqli_connect("localhost", "root", "", "PharmEasy");
 // $connection = mysqli_connect("localhost", "id18232906_pharmeasy_1", "EsIXy?]3b4EdY8H(", "id18232906_pharmeasy");
-
+// query functions (start)
 function query($query)
 {
     global $connection;
@@ -25,6 +25,8 @@ function single_query($query)
         return 0;
     }
 }
+// query functions (end)
+// redirect functions (start)
 function post_redirect($url)
 {
     ob_start();
@@ -38,27 +40,8 @@ function get_redirect($url)
     window.location.href = '$url'; 
     </script>";
 }
-
-function login()
-{
-    if (isset($_POST['login'])) {
-
-        $adminEmail = $_POST['adminEmail'];
-        $password = $_POST['adminPassword'];
-        $query = "SELECT  admin_email , admin_id , admin_password FROM admin WHERE admin_email= '$adminEmail' ";
-        $data = query($query);
-        if ($data == 0) {
-            $_SESSION['message'] = "loginErr";
-            post_redirect("login.php");
-        } elseif ($password == $data[0]['admin_password'] and  $adminEmail == $data[0]['admin_email']) {
-            $_SESSION['admin_id'] = $data[0]['admin_id'];
-            post_redirect("index.php");
-        } else {
-            $_SESSION['message'] = "loginErr";
-            post_redirect("login.php");
-        }
-    }
-}
+// redirect functions (end)
+// messages function (start)
 function message()
 {
     if ($_SESSION['message'] == "loginErr") {
@@ -103,6 +86,30 @@ function message()
         unset($_SESSION['message']);
     }
 }
+// messages function (end)
+// login function (start)
+function login()
+{
+    if (isset($_POST['login'])) {
+
+        $adminEmail = $_POST['adminEmail'];
+        $password = $_POST['adminPassword'];
+        $query = "SELECT  admin_email , admin_id , admin_password FROM admin WHERE admin_email= '$adminEmail' ";
+        $data = query($query);
+        if ($data == 0) {
+            $_SESSION['message'] = "loginErr";
+            post_redirect("login.php");
+        } elseif ($password == $data[0]['admin_password'] and  $adminEmail == $data[0]['admin_email']) {
+            $_SESSION['admin_id'] = $data[0]['admin_id'];
+            post_redirect("index.php");
+        } else {
+            $_SESSION['message'] = "loginErr";
+            post_redirect("login.php");
+        }
+    }
+}
+// login function (end)
+// user functions (start)
 function all_users()
 {
     $query = "SELECT user_id ,user_fname ,user_lname ,email ,user_address FROM user";
@@ -176,6 +183,17 @@ function search_user()
         }
     }
 }
+function get_user_details()
+{
+    if ($_GET['id']) {
+        $id = $_GET['id'];
+        $query = "SELECT * FROM user WHERE user_id=$id";
+        $data = query($query);
+        return $data;
+    }
+}
+// user functions (end)
+// item functions (start)
 function all_items()
 {
     $query = "SELECT * FROM item";
@@ -261,11 +279,20 @@ function add_item()
         $price = $_POST['price'];
         $details = $_POST['details'];
         $check = check_name($name);
+        if (
+            empty($name) or empty($brand) or empty($cat) or empty($description) or
+            empty($tags) or empty($image) or empty($quantity) or empty($price) or empty($details)
+        ) {
+            $_SESSION['message'] = "empty_err";
+            get_redirect("products.php");
+            return;
+        }
         if ($check == 0) {
             $query = "INSERT INTO item (item_title, item_brand, item_cat, item_details ,item_description ,
             item_tags ,item_image ,item_quantity ,item_price) VALUES
             ('$name' ,'$brand' ,'$cat' ,'$details' ,'$description' ,'$tags' ,'$image' ,'$quantity' ,'$price')";
             $run = single_query($query);
+            echo $run;
             get_redirect("products.php");
         } else {
             $_SESSION['message'] = "itemErr";
@@ -275,6 +302,17 @@ function add_item()
         get_redirect("products.php");
     }
 }
+function get_item_details()
+{
+    if ($_GET['id']) {
+        $id = $_GET['id'];
+        $query = "SELECT * FROM item WHERE item_id=$id";
+        $data = query($query);
+        return $data;
+    }
+}
+// item functions (end)
+// admin functions (start)
 function all_admins()
 {
     $query = "SELECT admin_id ,admin_fname ,admin_lname ,admin_email  FROM admin";
@@ -363,6 +401,18 @@ function search_admin()
         }
     }
 }
+function check_admin($id)
+{
+    $query = "SELECT admin_id FROM admin where admin_id='$id'";
+    $row = query($query);
+    if (empty($row)) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+// admin functions (end)
+// order functions (start)
 function all_orders()
 {
     $query = "SELECT * FROM orders";
@@ -405,31 +455,4 @@ function delete_order()
         get_redirect("orders.php");
     }
 }
-function get_item_details()
-{
-    if ($_GET['id']) {
-        $id = $_GET['id'];
-        $query = "SELECT * FROM item WHERE item_id=$id";
-        $data = query($query);
-        return $data;
-    }
-}
-function get_user_details()
-{
-    if ($_GET['id']) {
-        $id = $_GET['id'];
-        $query = "SELECT * FROM user WHERE user_id=$id";
-        $data = query($query);
-        return $data;
-    }
-}
-function check_admin($id)
-{
-    $query = "SELECT admin_id FROM admin where admin_id='$id'";
-    $row = query($query);
-    if (empty($row)) {
-        return 0;
-    } else {
-        return 1;
-    }
-}
+// order functions (end)

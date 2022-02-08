@@ -48,7 +48,7 @@ function login()
         $userEmail = $_POST['userEmail'];
         $password = $_POST['password'];
         if (empty($userEmail) or empty($password)) {
-            $_SESSION['message'] = "loginErrEmpty";
+            $_SESSION['message'] = "empty_err";
             post_redirect("login.php");
         }
         $query = "SELECT  email , user_id , user_password FROM user WHERE email= '$userEmail' ";
@@ -70,15 +70,19 @@ function singUp()
 {
     if (isset($_POST['singUp'])) {
         $email  = $_POST['email'];
+        $email = strtolower($email);
         $fname  = $_POST['Fname'];
         $lname = $_POST['Lname'];
         $address = $_POST['address'];
         $passwd = $_POST['passwd'];
-        if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
-            $_SESSION['message'] = "signUpErr";
+        if (empty($email) or empty($passwd) or empty($address) or empty($fname) or empty($lname)) {
+            $_SESSION['message'] = "empty_err";
+            post_redirect("signUp.php");
+        } elseif (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
+            $_SESSION['message'] = "signup_err_email";
             post_redirect("signUp.php");
         } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,30}$/', $passwd)) {
-            $_SESSION['message'] = "signUpErr";
+            $_SESSION['message'] = "signup_err_password";
             post_redirect("signUp.php");
         }
         $query = "SELECT email FROM user ";
@@ -106,9 +110,9 @@ function singUp()
 function message()
 {
     if (isset($_SESSION['message'])) {
-        if ($_SESSION['message'] == "signUpErr") {
+        if ($_SESSION['message'] == "signup_err_password") {
             echo "   <div class='alert alert-danger' role='alert'>
-        please enter the email and the password in correct form !!!
+        please enter the password in correct form !!!
       </div>";
             unset($_SESSION['message']);
         } elseif ($_SESSION['message'] == "loginErr") {
@@ -126,9 +130,14 @@ function message()
         Something went wrong !!!
       </div>";
             unset($_SESSION['message']);
-        } elseif ($_SESSION['message'] == "loginErrEmpty") {
+        } elseif ($_SESSION['message'] == "empty_err") {
             echo "   <div class='alert alert-danger' role='alert'>
-        please don't leave anything empty .
+        please don't leave anything empty !!!
+      </div>";
+            unset($_SESSION['message']);
+        } elseif ($_SESSION['message'] == "signup_err_email") {
+            echo "   <div class='alert alert-danger' role='alert'>
+        please enter the email in the correct form !!!
       </div>";
             unset($_SESSION['message']);
         }

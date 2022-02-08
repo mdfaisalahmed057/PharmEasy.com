@@ -51,10 +51,10 @@ include "includes/head.php"
             <strong>
               <h5 style="font-weight:bold; color: rgb(104, 97, 97);"> Medicine Products</h5>
             </strong>
-            <a href="search.php?cat=medicine"> <img src="images/midicin.jpg" style="width:150.4px ; height:225px ;" class="d-block " alt="...">
-              <br></a>
-            <button class="rounded-2" style="background-color: LightSalmon;
-           color: white; font-weight: bold; border-color: LightSalmon;margin:10px;">Go To Medicine Products</button>
+            <img src="images/midicin.jpg" style="width:150.4px ; height:225px ;" class="d-block " alt="...">
+            <br>
+            <a href="search.php?cat=medicine"> <button class="rounded-2" style="background-color: LightSalmon;
+           color: white; font-weight: bold; border-color: LightSalmon;margin:10px;">Go To Medicine Products</button></a>
           </div>
         </div>
       </div>

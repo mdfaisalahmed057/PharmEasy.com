@@ -27,8 +27,6 @@ include "includes/functions.php";
                 <?php
                 login();
                 message();
-                echo $_SESSION['admin_id'];
-
                 ?>
                 <form id="loginform" class="form-horizontal" role="form" method="post" action="login.php">
 

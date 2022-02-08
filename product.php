@@ -56,7 +56,8 @@ include "includes/head.php"
             <p class="card-text">
               <span style="color: blue;">Deliver to :</span>
               <?php
-              if (isset($user)) {
+              if (isset($_SESSION['user_id'])) {
+                $user = get_user($_SESSION['user_id']);
                 echo $user[0]['user_address'];
               } else {
                 echo "Btm 1st stage opp maruthi layout,4th 560029 bagalore (Store)";

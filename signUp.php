@@ -49,7 +49,7 @@ include "includes/functions.php";
                     <div class="form-group">
                         <label for="address" class="col-md-3 control-label">Address</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="address" placeholder="Last Name">
+                            <input type="text" class="form-control" name="address" placeholder="Address">
                         </div>
                     </div>
                     <div class="form-group">

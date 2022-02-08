@@ -37,19 +37,19 @@ include "includes/head.php"
                             <div class="col-md-4">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $data[$i][0]['item_title'] ?></h5>
-                                    <p class="card-text" style="font-weight: bold;"><?php echo $data[$i][0]['item_description'] ?><br>
-                                        <?php if ($data[$i][0]['item_quantity'] > 0) {
+                                    <br>
+                                    <?php if ($data[$i][0]['item_quantity'] > 0) {
 
-                                        ?>
-                                            <small style="color: rgb(58, 211, 58);">In Stock</small>
-                                        <?php
-                                        } else {
-                                        ?>
-                                            <small style="color: red;">Out Of Stock</small>
+                                    ?>
+                                        <small style="color: rgb(58, 211, 58);">In Stock</small>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <small style="color: red;">Out Of Stock</small>
 
-                                        <?php
-                                        }
-                                        ?>
+                                    <?php
+                                    }
+                                    ?>
                                     </p>
                                     <small style="font-weight: bold;">₹<?php echo $data[$i][0]['item_price'] ?></small><br>
                                     <small class="text-muted" style="font-weight: bold;">Brand Name </small>

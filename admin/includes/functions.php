@@ -215,7 +215,6 @@ function edit_item($id)
         $name = $_POST['name'];
         $brand = $_POST['brand'];
         $cat = $_POST['cat'];
-        $description = $_POST['description'];
         $tags = $_POST['tags'];
         $image = $_POST['image'];
         $quantity = $_POST['quantity'];
@@ -224,7 +223,7 @@ function edit_item($id)
         $check = check_name($name);
         if ($check == 0) {
             $query = "UPDATE item SET item_title='$name' ,item_brand='$brand' ,item_cat='$cat' ,
-            item_details='$details',item_description='$description' ,item_tags='$tags' 
+            item_details='$details',item_tags='$tags' 
             ,item_image='$image' ,item_quantity='$quantity' ,item_price='$price'  WHERE item_id= '$id'";
             $run = single_query($query);
             get_redirect("products.php");
@@ -288,9 +287,9 @@ function add_item()
             return;
         }
         if ($check == 0) {
-            $query = "INSERT INTO item (item_title, item_brand, item_cat, item_details ,item_description ,
+            $query = "INSERT INTO item (item_title, item_brand, item_cat, item_details  ,
             item_tags ,item_image ,item_quantity ,item_price) VALUES
-            ('$name' ,'$brand' ,'$cat' ,'$details' ,'$description' ,'$tags' ,'$image' ,'$quantity' ,'$price')";
+            ('$name' ,'$brand' ,'$cat' ,'$details' ,'$tags' ,'$image' ,'$quantity' ,'$price')";
             $run = single_query($query);
             echo $run;
             get_redirect("products.php");

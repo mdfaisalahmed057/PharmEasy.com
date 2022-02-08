@@ -107,7 +107,6 @@ include "includes/head.php";
                         <th scope="col">Name</th>
                         <th scope="col">Brand</th>
                         <th scope="col">Category</th>
-                        <th scope="col">description</th>
                         <th scope="col">Tags</th>
                         <th scope="col">Image</th>
                         <th scope="col">quantity</th>
@@ -146,7 +145,6 @@ include "includes/head.php";
                                 <td><?php echo $data[$i]['item_title'] ?></td>
                                 <td><?php echo $data[$i]['item_brand'] ?></td>
                                 <td><?php echo $data[$i]['item_cat'] ?></td>
-                                <td><?php echo $data[$i]['item_description'] ?></td>
                                 <td><?php echo $data[$i]['item_tags'] ?></td>
                                 <td><?php echo $data[$i]['item_image'] ?></td>
                                 <td><?php echo $data[$i]['item_quantity'] ?></td>
@@ -196,11 +194,6 @@ include "includes/head.php";
                         <option value="self-care">self-care</option>
                         <option value="machine">machine</option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label>Product description</label>
-                    <input pattern="[A-Za-z0-9_]{1,15}" id="validationTooltip01" type="text" class="form-control" placeholder="<?php echo $data[0]['item_description'] ?>" name="description">
-                    <div class="form-text">please enter description for the product in range(1-250) character/s , special character not allowed !</div>
                 </div>
                 <div class="form-group">
                     <label>Product tags</label>

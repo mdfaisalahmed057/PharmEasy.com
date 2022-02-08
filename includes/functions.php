@@ -150,12 +150,12 @@ function search()
         if ($search_text == "") {
             return;
         }
-        $query = "SELECT item_brand, item_title ,item_id ,item_description ,item_image FROM item WHERE item_tags LIKE '%$search_text%'";
+        $query = "SELECT * FROM item WHERE item_tags LIKE '%$search_text%'";
         $data = query($query);
         return $data;
     } elseif (isset($_GET['cat'])) {
         $cat = $_GET['cat'];
-        $query = "SELECT item_brand, item_title ,item_id ,item_description ,item_image FROM item WHERE item_cat='$cat' ORDER BY RAND()";
+        $query = "SELECT * FROM item WHERE item_cat='$cat' ORDER BY RAND()";
         $data = query($query);
         return $data;
     }
@@ -239,7 +239,7 @@ function get_cart()
     if (isset($num)) {
         for ($i = 0; $i < $num; $i++) {
             $item_id = $_SESSION['cart'][$i]['item_id'];
-            $query = "SELECT item_id, item_image ,item_title ,item_description ,item_quantity ,item_price ,item_brand FROM item WHERE item_id='$item_id'";
+            $query = "SELECT item_id, item_image ,item_title  ,item_quantity ,item_price ,item_brand FROM item WHERE item_id='$item_id'";
             $data[$i] = query($query);
         }
         return $data;

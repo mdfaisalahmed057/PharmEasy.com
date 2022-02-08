@@ -20,7 +20,11 @@ include "includes/head.php"
                             <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
-                                <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>
+                                <br>
+                                <strong>
+                                    <h3 style="color :#82E0AA;" class="card-text"> ₹<?php echo $data[$i]['item_price'] ?></h3>
+                                </strong>
+                                <br>
                                 <small class="text-muted" style="font-weight: bold;">Brand Name: <?php echo $data[$i]['item_brand'] ?></small><br><br>
                                 <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-outline-success">More details</a>
 
@@ -46,7 +50,11 @@ include "includes/head.php"
                                 <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
-                                    <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>
+                                    <br>
+                                    <strong>
+                                        <h3 style="color :#82E0AA;" class="card-text"> ₹<?php echo $data[$i]['item_price'] ?></h3>
+                                    </strong>
+                                    <br>
                                     <small class="text-muted" style="font-weight: bold;">Brand Name: <?php echo $data[$i]['item_brand'] ?></small><br><br>
                                     <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-outline-success">More details</a>
 
@@ -76,8 +84,11 @@ include "includes/head.php"
                             <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
-                                <p class="card-text"><?php echo $data[$i]['item_description'] ?></p>
-                                <small class="text-muted" style="font-weight: bold;">Brand Name: <?php echo $data[$i]['item_brand'] ?></small><br><br>
+                                <br>
+                                <strong>
+                                    <h3 style="color :#82E0AA;" class="card-text"> ₹<?php echo $data[$i]['item_price'] ?></h3>
+                                </strong>
+                                <br> <small class="text-muted" style="font-weight: bold;">Brand Name: <?php echo $data[$i]['item_brand'] ?></small><br><br>
                                 <a href="product.php?product_id=<?php echo $data[$i]['item_id'] ?>" class="btn btn-outline-success">More details</a>
 
                             </div>

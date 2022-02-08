@@ -17,7 +17,8 @@ include "includes/head.php"
       </div>
       <div class=" col">
         <br>
-        <p style="font-weight: bold;"><?php echo $data[0]['item_title'] ?><br>
+        <h4 style="font-weight: bold;"><?php echo $data[0]['item_title'] ?><br></h4>
+        <br>
         <h1 class="border border-1" style="width: 100%;"> </h1>
         <div class="container">
           <div class="row">
@@ -26,10 +27,13 @@ include "includes/head.php"
             <div class="w-100 d-none d-md-block"></div>
             <div class="col-6 col-sm-4" style="padding-top: 20px;font-weight:bold">category </div>
             <div class="col-6 col-sm-4" style="padding-top: 20px;font-weight: bold"> <?php echo $data[0]['item_cat'] ?></div>
+            <br><br>
           </div>
         </div>
         <h1 class="border border-1" style="width: 100%;  "> </h1>
-        <h5 style="width: 100%; padding-right: 180px; font-weight: bold;">About this item</h5>
+        <br>
+        <h5 style="width: 100%; padding-right: 200px; font-weight: bold;">About this item :</h5>
+        <br>
         <p style="font-weight: bold;">
           <?php echo $data[0]['item_details'] ?>
         </p>

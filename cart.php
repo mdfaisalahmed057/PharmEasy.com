@@ -37,7 +37,7 @@ include "includes/head.php"
                             <div class="col-md-4">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $data[$i][0]['item_title'] ?></h5>
-                                    <br>
+
                                     <?php if ($data[$i][0]['item_quantity'] > 0) {
 
                                     ?>
@@ -75,6 +75,7 @@ include "includes/head.php"
                 <h1 class="border border-1.5" style="width: 100%;"> </h1>
             </div>
             <div style="margin-left: 460px;">
+            <br>
                 <h5>total (<?php
                             $total = total_price($data);
                             echo $num . " ";
@@ -88,7 +89,7 @@ include "includes/head.php"
 
             </div>
             <div style="margin-left: 350px; padding-right: 100px;">
-                <a href="product.php?delete=<?php echo $data[$i][0]['item_id'] ?>" class="btn btn-outline-danger btn-lg"> Delete all Products !</a>
+                <a href="cart.php?delete_all=1" class="btn btn-outline-danger btn-lg"> Delete all Products !</a>
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 <a href="final.php?order=done" class="btn btn-outline-success btn-lg"> &nbsp;Proceed to Buy &nbsp;</a>
                 <br><br>

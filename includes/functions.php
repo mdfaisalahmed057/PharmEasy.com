@@ -260,6 +260,9 @@ function delete_from_cart()
             }
         }
         get_redirect("cart.php");
+    } elseif (isset($_GET['delete_all'])) {
+        unset($_SESSION['cart']);
+        get_redirect("cart.php");
     }
 }
 function add_order()

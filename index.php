@@ -42,7 +42,6 @@ include "includes/head.php"
 
     <!-- categories-->
 
-    <h2 style="margin-top: 10px;">Categories : </h2>
     <div class="row" id="cards">
       <div class="col-sm-3" id="cards">
         <div class="card " style="background-color: AntiqueWhite; height: 70%;">

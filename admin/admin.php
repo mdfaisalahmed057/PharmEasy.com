@@ -39,6 +39,7 @@ include "includes/head.php";
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
+                        <th scope="col">#</th>
                         <th scope="col">ID</th>
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
@@ -62,6 +63,7 @@ include "includes/head.php";
                     for ($i = 0; $i < $num; $i++) {
                     ?>
                         <tr>
+                            <td><?php echo $i ?></td>
                             <td><?php echo $data[$i]['admin_id'] ?></td>
                             <td><?php echo $data[$i]['admin_fname'] ?></td>
                             <td><?php echo $data[$i]['admin_lname'] ?></td>

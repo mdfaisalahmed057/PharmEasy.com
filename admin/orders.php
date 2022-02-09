@@ -39,6 +39,7 @@ include "includes/head.php";
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
+                        <th scope="col">#</th>
                         <th scope="col">ID</th>
                         <th scope="col">User ID</th>
                         <th scope="col">product ID</th>
@@ -64,6 +65,7 @@ include "includes/head.php";
 
                     ?>
                         <tr>
+                            <td><?php echo $i ?></td>
                             <td><?php echo $data[$i]['order_id'] ?></td>
                             <td><?php echo $data[$i]['user_id'] ?></td>
                             <td><?php echo $data[$i]['item_id'] ?></td>

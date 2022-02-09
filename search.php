@@ -14,12 +14,25 @@ include "includes/head.php"
             <?php
             if (!empty($data)) {
                 $num = sizeof($data);
-                for ($i = 0; $i < $num; $i++) { ?>
+                for ($i = 0; $i < $num; $i++) {
+
+            ?>
                     <div class="col-sm-2" id="cards" style="width: 20.45rem; ">
                         <div class="card border border-warning">
-                            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
+                            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
+                                <?php
+                                if (strlen($data[$i]['item_title']) <= 40) {
+                                ?>
+                                    <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
+
+                                <?php
+                                } else {
+                                ?>
+                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 40) . "..." ?></h5>
+                                <?php
+                                }
+                                ?>
                                 <br>
                                 <strong>
                                     <h3 style="color :#82E0AA;" class="card-text"> ₹<?php echo $data[$i]['item_price'] ?></h3>
@@ -47,9 +60,20 @@ include "includes/head.php"
                     ?>
                         <div class="col-sm-2" id="cards" style="width: 20.45rem;">
                             <div class="card border border-warning">
-                                <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
+                                <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
+                                    <?php
+                                    if (strlen($data[$i]['item_title']) <= 40) {
+                                    ?>
+                                        <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
+
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 40) . "..." ?></h5>
+                                    <?php
+                                    }
+                                    ?>
                                     <br>
                                     <strong>
                                         <h3 style="color :#82E0AA;" class="card-text"> ₹<?php echo $data[$i]['item_price'] ?></h3>
@@ -77,13 +101,24 @@ include "includes/head.php"
                 $data = all_products();
                 $num = sizeof($data);
                 for ($i = 0; $i < $num; $i++) {
-
                 ?>
                     <div class="col-sm-2" id="cards" style="width: 20.45rem;">
                         <div class="card border border-warning">
-                            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.4px ; height:305px ;">
+                            <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
+                                <?php
+                                if (strlen($data[$i]['item_title']) <= 40) {
+                                ?>
+                                    <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
+
+                                <?php
+                                } else {
+                                ?>
+                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 40) . "..." ?></h5>
+                                <?php
+                                }
+                                ?>
+
                                 <br>
                                 <strong>
                                     <h3 style="color :#82E0AA;" class="card-text"> ₹<?php echo $data[$i]['item_price'] ?></h3>

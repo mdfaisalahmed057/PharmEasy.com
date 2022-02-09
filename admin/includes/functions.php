@@ -271,7 +271,6 @@ function add_item()
         $name = $_POST['name'];
         $brand = $_POST['brand'];
         $cat = $_POST['cat'];
-        $description = $_POST['description'];
         $tags = $_POST['tags'];
         $image = $_POST['image'];
         $quantity = $_POST['quantity'];
@@ -279,7 +278,7 @@ function add_item()
         $details = $_POST['details'];
         $check = check_name($name);
         if (
-            empty($name) or empty($brand) or empty($cat) or empty($description) or
+            empty($name) or empty($brand) or empty($cat)  or
             empty($tags) or empty($image) or empty($quantity) or empty($price) or empty($details)
         ) {
             $_SESSION['message'] = "empty_err";

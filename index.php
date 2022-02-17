@@ -150,8 +150,19 @@ include "includes/head.php"
           <div class="card border border-warning">
             <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
             <div class="card-body">
-              <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
-              <br>
+              <?php
+              if (strlen($data[$i]['item_title']) <= 40) {
+              ?>
+                <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
+
+              <?php
+              } else {
+              ?>
+                <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 40) . "..." ?></h5>
+              <?php
+              }
+              ?>
+              <br> <br>
               <strong>
                 <h3 style="color :#82E0AA;" class="card-text"> ₹<?php echo $data[$i]['item_price'] ?></h3>
               </strong>

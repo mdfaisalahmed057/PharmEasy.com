@@ -193,12 +193,12 @@ function get_user($id)
 }
 function add_cart($item_id)
 {
-    if (isset($_GET['cart'])) {
-        $user_id = $_SESSION['user_id'];
-        $quantity = $_GET['quantity'];
-        if (empty($user_id)) {
-            get_redirect("login.php");
-        } else {
+    $user_id = $_SESSION['user_id'];
+    $quantity = $_GET['quantity'];
+    if (empty($user_id)) {
+        get_redirect("login.php");
+    } else {
+        if (isset($_GET['cart'])) {
             if (isset($_SESSION['cart'])) {
                 $num = sizeof($_SESSION['cart']);
                 $_SESSION['cart'][$num]['user_id'] = $user_id;
@@ -211,13 +211,7 @@ function add_cart($item_id)
                 $_SESSION['cart'][0]['quantity'] = $quantity;
                 get_redirect("product.php?product_id=" . $item_id);
             }
-        }
-    } elseif (isset($_GET['buy'])) {
-        $user_id = $_SESSION['user_id'];
-        $quantity = $_GET['quantity'];
-        if (!isset($user_id)) {
-            get_redirect("login.php");
-        } else {
+        } elseif (isset($_GET['buy'])) {
             if (isset($_SESSION['cart'])) {
                 $num = sizeof($_SESSION['cart']);
                 $_SESSION['cart'][$num]['user_id'] = $user_id;
@@ -229,6 +223,19 @@ function add_cart($item_id)
                 $_SESSION['cart'][0]['item_id'] = $item_id;
                 $_SESSION['cart'][0]['quantity'] = $quantity;
                 get_redirect("cart.php");
+            }
+        }
+        if (isset($_SESSION['cart'])) {
+            $num = sizeof($_SESSION['cart']);
+            for ($i = 0; $i < $num; $i++) {
+                for ($j = $i + 1; $j < $num; $j++) {
+
+                    if ($_SESSION['cart'][$i]['item_id'] == $_SESSION['cart'][$j]['item_id']) {
+                        $_SESSION['cart'][$i]['quantity'] += $_SESSION['cart'][$j]['quantity'];
+                        unset($_SESSION['cart'][$j]);
+                        $_SESSION['cart'] = array_values($_SESSION['cart']);
+                    }
+                }
             }
         }
     }

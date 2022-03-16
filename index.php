@@ -50,7 +50,9 @@ include "includes/head.php"
             <strong>
               <h5 style="font-weight:bold; color: rgb(104, 97, 97);"> Medicine Products</h5>
             </strong>
-            <img src="images/midicin.jpg" style="width:150.4px ; height:225px ;" class="d-block " alt="...">
+            <a href="search.php?cat=medicine">
+              <img src="images/midicin.jpg" style="width:150.4px ; height:225px ;" class="d-block " alt="...">
+            </a>
             <br>
             <a href="search.php?cat=medicine"> <button class="rounded-2" style="background-color: LightSalmon;
            color: white; font-weight: bold; border-color: LightSalmon;margin:10px;">Go To Medicine Products</button></a>
@@ -64,7 +66,9 @@ include "includes/head.php"
             <strong>
               <h5 style="font-weight:bold; color: rgb(104, 97, 97);"> Self care Products</h5>
             </strong>
-            <img src="images/self-care.jpg" style=" height:200px ;">
+            <a href="search.php?cat=self-care">
+              <img src="images/self-care.jpg" style=" height:200px ;">
+            </a>
             <br><br><br>
             <a href="search.php?cat=self-care"> <button class="rounded-2" style="background-color: SteelBlue;
            color: white; font-weight: bold; border-color: PowderBlue;margin:10px;">Go To Self Care</button></a>
@@ -78,7 +82,9 @@ include "includes/head.php"
             <strong>
               <h5 style="font-weight:bold; color: rgb(104, 97, 97);">Machine Products</h5>
             </strong>
-            <img src="images/machine.jpg" style="width:120.4px ; height:200px ;"><br>
+            <a href="search.php?cat=machine">
+              <img src="images/machine.jpg" style="width:120.4px ; height:200px ;"><br>
+            </a>
             <br> <br>
             <a href="search.php?cat=machine"> <button class="rounded-2" style="background-color: LightSlateGrey;
            color: white; font-weight: bold; border-color: LightSlateGrey;margin:10px;">Go To Machines</button></a>
@@ -91,9 +97,11 @@ include "includes/head.php"
             <br>
             <h5 style="font-weight:bold; color: rgb(104, 97, 97);">Our Stores</h5>
             </strong>
-            <img src="images/stores.jpeg" style="width:150.4px ; height:200px ;"><br>
+            <a href="https://www.google.com/maps/search/PharmEasy/@12.9384323,77.5652432,12z/data=!3m1!4b1" target="_blank">
+              <img src="images/stores.jpeg" style="width:150.4px ; height:200px ;"><br>
+            </a>
             <br> <br>
-            <a href="https://www.google.com/maps/search/PharmEasy/@12.9384323,77.5652432,12z/data=!3m1!4b1"> <button class="rounded-2" style="background-color: #00b9e1;
+            <a href="https://www.google.com/maps/search/PharmEasy/@12.9384323,77.5652432,12z/data=!3m1!4b1" target="_blank"> <button class="rounded-2" style="background-color: #00b9e1;
            color: white; font-weight: bold; border-color: #00b9e1;margin:10px;">Check The Locations</button></a>
           </div>
         </div>

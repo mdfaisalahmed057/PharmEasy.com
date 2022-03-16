@@ -42,7 +42,6 @@ include "includes/functions.php";
                         post_redirect("logout.php");
                     }
                 }
-                $data = search();
                 ?>
 
 

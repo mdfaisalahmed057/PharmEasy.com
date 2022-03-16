@@ -12,6 +12,7 @@ include "includes/head.php"
     <div class="container-fluid ">
         <div class="row">
             <?php
+            $data = search();
             if (!empty($data)) {
                 $num = sizeof($data);
                 for ($i = 0; $i < $num; $i++) {
@@ -22,14 +23,14 @@ include "includes/head.php"
                             <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                             <div class="card-body">
                                 <?php
-                                if (strlen($data[$i]['item_title']) <= 40) {
+                                if (strlen($data[$i]['item_title']) <= 25) {
                                 ?>
                                     <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
 
                                 <?php
                                 } else {
                                 ?>
-                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 40) . "..." ?></h5>
+                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 25) . "..." ?></h5>
                                 <?php
                                 }
                                 ?>
@@ -63,14 +64,14 @@ include "includes/head.php"
                                 <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                                 <div class="card-body">
                                     <?php
-                                    if (strlen($data[$i]['item_title']) <= 40) {
+                                    if (strlen($data[$i]['item_title']) <= 25) {
                                     ?>
                                         <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
 
                                     <?php
                                     } else {
                                     ?>
-                                        <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 40) . "..." ?></h5>
+                                        <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 25) . "..." ?></h5>
                                     <?php
                                     }
                                     ?>
@@ -93,10 +94,9 @@ include "includes/head.php"
                 }
             } else {
                 ?>
-                <h1 style="text-align: center; font-family: 'Fredoka One', cursive;">No results</h1>
-                <p style="text-align: center; font-family: 'Fredoka One', cursive;">No product found with this name !</p>
-                <img src="images/noResult.png" style="height: auto; width:auto; margin-left: auto; margin-right: auto;">
-                <h2 style="margin-top: 45px;">You might also like : </h2>
+
+                <img src="images/1.gif" style="height: auto; width:auto; margin-left: auto; margin-right: auto;">
+                <h2 style="margin-top: 13px;">You might also like : </h2>
                 <?php
                 $data = all_products();
                 $num = sizeof($data);
@@ -107,14 +107,14 @@ include "includes/head.php"
                             <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                             <div class="card-body">
                                 <?php
-                                if (strlen($data[$i]['item_title']) <= 40) {
+                                if (strlen($data[$i]['item_title']) <= 25) {
                                 ?>
                                     <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
 
                                 <?php
                                 } else {
                                 ?>
-                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 40) . "..." ?></h5>
+                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 25) . "..." ?></h5>
                                 <?php
                                 }
                                 ?>

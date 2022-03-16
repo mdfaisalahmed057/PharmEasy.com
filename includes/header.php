@@ -1,6 +1,3 @@
-<?php
-include "includes/functions.php";
-?>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0d8592;">
         <div class="container-fluid">

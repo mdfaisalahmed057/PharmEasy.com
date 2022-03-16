@@ -1,6 +1,6 @@
 <?php
 $connection = mysqli_connect("localhost", "root", "", "PharmEasy");
-// $connection = mysqli_connect("localhost", "id18232906_pharmeasy_1", "EsIXy?]3b4EdY8H(", "id18232906_pharmeasy");
+// $connection = mysqli_connect("localhost", "id18232906_pharmeasy_1", "6HR^F*s7Ouek}r-a", "id18232906_pharmeasy");
 // query functions (start)
 function query($query)
 {

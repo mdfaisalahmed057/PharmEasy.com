@@ -1,3 +1,9 @@
+<?php
+session_start();
+include "includes/functions.php";
+login();
+?>
+
 <head>
     <title>
         PharmEasy
@@ -9,10 +15,6 @@
 </head>
 
 <!------ Include the above in your HEAD tag ---------->
-<?php
-session_start();
-include "includes/functions.php";
-?>
 <div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
@@ -25,7 +27,7 @@ include "includes/functions.php";
 
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                 <?php
-                login();
+
                 message();
 
                 ?>

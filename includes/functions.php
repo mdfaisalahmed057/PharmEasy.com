@@ -1,18 +1,19 @@
 <?php
-$connection = mysqli_connect("localhost", "root", "", "PharmEasy");
-// $connection = mysqli_connect("localhost", "id18232906_pharmeasy_1", "EsIXy?]3b4EdY8H(", "id18232906_pharmeasy");
-
+// $connection = mysqli_connect("localhost", "root", "", "PharmEasy");
+$connection = mysqli_connect("localhost", "id18232906_pharmeasy_1", "6HR^F*s7Ouek}r-a", "id18232906_pharmeasy");
 function post_redirect($url)
 {
     ob_start();
-    header('Location: ' . $url);
+    // header('Location: ' . $url);
+    header('Location: https://pharmeasy1.000webhostapp.com/' . $url);
     ob_end_flush();
     die();
 }
+session_start();
 function get_redirect($url)
 {
     echo " <script> 
-    window.location.href = '$url'; 
+    window.location.href = https://pharmeasy1.000webhostapp.com/'$url'; 
     </script>";
 }
 function query($query)

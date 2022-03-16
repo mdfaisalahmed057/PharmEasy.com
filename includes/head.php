@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+include "includes/functions.php";
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 

@@ -61,6 +61,19 @@ include "includes/head.php";
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $data[0]['admin_email'] ?>" name="admin_email">
                     <div class="form-text">please enter the email in format : example@gmail.com.</div>
                 </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" pattern="^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$" class="form-control" placeholder="Password" name="admin_password">
+                    <div class="form-text">
+                        <ul>
+                            <li>Must be a minimum of 8 characters</li>
+                            <li>Must contain at least 1 number</li>
+                            <li>Must contain at least one uppercase character</li>
+                            <li>Must contain at least one lowercase character</li>
+                        </ul>
+                    </div>
+                </div>
+                <br>    
                 <button type="submit" class="btn btn-outline-primary" value="update" name="admin_update">Submit</button>
                 <button type=" submit" class="btn btn-outline-danger" value="cancel" name="admin_cancel">Cancel</button>
                 <br> <br>

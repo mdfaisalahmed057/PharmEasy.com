@@ -337,9 +337,10 @@ function edit_admin($id)
         $fname = $_POST['admin_fname'];
         $lname = $_POST['admin_lname'];
         $email = $_POST['admin_email'];
+        $password = $_POST['admin_password'];
         $check = check_email_admin($email);
         if ($check == 0) {
-            $query = "UPDATE admin SET admin_email='$email' ,admin_fname='$fname' ,admin_lname='$lname'  WHERE admin_id= '$id'";
+            $query = "UPDATE admin SET admin_email='$email' ,admin_fname='$fname' ,admin_lname='$lname' ,admin_password='$password'  WHERE admin_id= '$id'";
             single_query($query);
             get_redirect("admin.php");
         } else {

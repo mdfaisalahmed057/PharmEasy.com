@@ -13,9 +13,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="cart.php" style="color: white; font-size:bold;">Cart</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin/index.php" style="color: white; font-size:bold;">Admin</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link  dropdown-toggle " style="color: white; font-size:bold;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categories

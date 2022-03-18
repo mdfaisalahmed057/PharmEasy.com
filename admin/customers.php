@@ -34,7 +34,50 @@ include "includes/head.php";
                 </div>
             </div>
         </div>
+        <?php
 
+        if (isset($_GET['edit'])) {
+            $_SESSION['id'] = $_GET['edit'];
+            $data = get_user($_SESSION['id']);
+
+        ?>
+            <br>
+            <h2>Edit Customer Details</h2>
+            <form action="customers.php" method="POST">
+                <div class="form-group">
+                    <label>First name</label>
+                    <input pattern="[A-Za-z_]{1,15}" type="text" class="form-control" placeholder="<?php echo $data[0]['user_fname'] ?>" name="fname">
+                    <div class="form-text">please enter the first name in range(1-30) character/s , special character & numbers not allowed !</div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="validationTooltip01">Last name</label>
+                    <input pattern="[A-Za-z_]{1,15}" id="validationTooltip01" type="text" class="form-control" placeholder="<?php echo $data[0]['user_lname'] ?>" name="lname">
+                    <div class="form-text">please enter the last name in range(1-30) character/s , special character & numbers not allowed !</div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $data[0]['email'] ?>" name="email">
+                    <div class="form-text">please enter the email in format : example@gmail.com.</div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="inputAddress2">Address</label>
+                    <input pattern="^[#.0-9a-zA-Z\s,-]+$" type="text" class="form-control" id="inputAddress2" placeholder="<?php echo $data[0]['user_address'] ?>" name="address">
+                </div>
+                <div class="form-text">please enter the email in format : #1, North Street, Chennai - 11.</div>
+                <br>
+                <button type="submit" class="btn btn-outline-success" value="update" name="update">Submit</button>
+                <button type=" submit" class="btn btn-outline-danger" value="cancel" name="cancel">Cancel</button>
+                <br> <br>
+            </form>
+
+        <?php
+        }
+        edit_user($_SESSION['id']);
+
+        ?>
         <div class="table-responsive">
             <table class="table table-striped table-sm">
                 <thead>
@@ -82,50 +125,7 @@ include "includes/head.php";
                 </tbody>
             </table>
         </div>
-        <?php
 
-        if (isset($_GET['edit'])) {
-            $_SESSION['id'] = $_GET['edit'];
-            $data = get_user($_SESSION['id']);
-
-        ?>
-            <br>
-            <h2>Edit Customer Details</h2>
-            <form action="customers.php" method="POST">
-                <div class="form-group">
-                    <label>First name</label>
-                    <input pattern="[A-Za-z_]{1,15}" type="text" class="form-control" placeholder="<?php echo $data[0]['user_fname'] ?>" name="fname">
-                    <div class="form-text">please enter the first name in range(1-30) character/s , special character & numbers not allowed !</div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="validationTooltip01">Last name</label>
-                    <input pattern="[A-Za-z_]{1,15}" id="validationTooltip01" type="text" class="form-control" placeholder="<?php echo $data[0]['user_lname'] ?>" name="lname">
-                    <div class="form-text">please enter the last name in range(1-30) character/s , special character & numbers not allowed !</div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $data[0]['email'] ?>" name="email">
-                    <div class="form-text">please enter the email in format : example@gmail.com.</div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="inputAddress2">Address</label>
-                    <input pattern="^[#.0-9a-zA-Z\s,-]+$" type="text" class="form-control" id="inputAddress2" placeholder="<?php echo $data[0]['user_address'] ?>" name="address">
-                </div>
-                <div class="form-text">please enter the email in format : #1, North Street, Chennai - 11.</div>
-                <br>
-                <button type="submit" class="btn btn-outline-success" value="update" name="update">Submit</button>
-                <button type=" submit" class="btn btn-outline-danger" value="cancel" name="cancel">Cancel</button>
-                <br> <br>
-            </form>
-
-        <?php
-        }
-        edit_user($_SESSION['id']);
-
-        ?>
     </main>
     </div>
     </div>

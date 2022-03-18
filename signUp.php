@@ -1,3 +1,9 @@
+<?php
+session_start();
+include "includes/functions.php";
+singUp();
+?>
+
 <head>
     <title>
         PharmEasy
@@ -8,10 +14,6 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <!------ Include the above in your HEAD tag ---------->
-<?php
-session_start();
-include "includes/functions.php";
-?>
 <div class="container">
     <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
@@ -21,9 +23,8 @@ include "includes/functions.php";
                 <div class="panel-title">Sign Up</div>
             </div>
             <?php
-            singUp();
+
             message();
-            // 
             ?>
             <div class="panel-body">
                 <form id="signupform" class="form-horizontal" role="form" method="post" action="signUp.php">

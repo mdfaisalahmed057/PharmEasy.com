@@ -18,7 +18,9 @@ include "includes/head.php";
       <br>
       <div class="row">
         <div class="card" style="width: 25rem;margin-bottom: 20px ;margin-right: 200px ;">
-          <img class="card-img-top" src="../images/shopping-cart.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
+          <a href="orders.php">
+            <img class="card-img-top" src="../images/shopping-cart.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
+          </a>
           <div class="card-body">
             <h5 class="card-title">Orders</h5>
             <p class="card-text">Display and modify the orders details.</p>
@@ -26,7 +28,9 @@ include "includes/head.php";
           </div>
         </div>
         <div class="card" style="width: 25rem;margin-bottom: 20px ;">
-          <img class="card-img-top" src="../images/package.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
+          <a href="products.php">
+            <img class="card-img-top" src="../images/package.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
+          </a>
           <div class="card-body">
             <h5 class="card-title">Products</h5>
             <p class="card-text">Display and modify the products details.</p>
@@ -36,7 +40,9 @@ include "includes/head.php";
       </div>
       <div class="row">
         <div class="card" style="width: 25rem;margin-top: 20px ;margin-right: 200px ;">
-          <img class="card-img-top" src="../images/users.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
+          <a href="customers.php">
+            <img class="card-img-top" src="../images/users.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
+          </a>
           <div class="card-body">
             <h5 class="card-title">Customers</h5>
             <p class="card-text">Display and modify the customers details.</p>
@@ -44,7 +50,9 @@ include "includes/head.php";
           </div>
         </div>
         <div class="card" style="width: 25rem;margin-top: 20px ;">
-          <img class="card-img-top" src="../images/user.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
+          <a href="admin.php">
+            <img class="card-img-top" src="../images/user.svg" alt="Card image cap" style="width: 5rem;margin-top: 20px ;">
+          </a>
           <div class="card-body">
             <h5 class="card-title">Admin</h5>
             <p class="card-text">Display and modify the admins details.</p>

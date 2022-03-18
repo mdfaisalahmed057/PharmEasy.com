@@ -23,14 +23,14 @@ include "includes/head.php"
                             <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                             <div class="card-body">
                                 <?php
-                                if (strlen($data[$i]['item_title']) <= 25) {
+                                if (strlen($data[$i]['item_title']) <= 20) {
                                 ?>
                                     <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
 
                                 <?php
                                 } else {
                                 ?>
-                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 25) . "..." ?></h5>
+                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 20) . "..." ?></h5>
                                 <?php
                                 }
                                 ?>
@@ -64,14 +64,14 @@ include "includes/head.php"
                                 <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                                 <div class="card-body">
                                     <?php
-                                    if (strlen($data[$i]['item_title']) <= 25) {
+                                    if (strlen($data[$i]['item_title']) <= 20) {
                                     ?>
                                         <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
 
                                     <?php
                                     } else {
                                     ?>
-                                        <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 25) . "..." ?></h5>
+                                        <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 20) . "..." ?></h5>
                                     <?php
                                     }
                                     ?>
@@ -107,14 +107,14 @@ include "includes/head.php"
                             <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
                             <div class="card-body">
                                 <?php
-                                if (strlen($data[$i]['item_title']) <= 25) {
+                                if (strlen($data[$i]['item_title']) <= 20) {
                                 ?>
                                     <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
 
                                 <?php
                                 } else {
                                 ?>
-                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 25) . "..." ?></h5>
+                                    <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 20) . "..." ?></h5>
                                 <?php
                                 }
                                 ?>

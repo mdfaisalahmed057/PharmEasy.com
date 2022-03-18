@@ -159,14 +159,14 @@ include "includes/head.php"
             <img src="images/<?php echo $data[$i]['item_image'] ?>" class="card-img-top" style="width:305.3px ; height:305px ;">
             <div class="card-body">
               <?php
-              if (strlen($data[$i]['item_title']) <= 40) {
+              if (strlen($data[$i]['item_title']) <= 20) {
               ?>
                 <h5 class="card-title"><?php echo $data[$i]['item_title'] ?></h5>
 
               <?php
               } else {
               ?>
-                <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 40) . "..." ?></h5>
+                <h5 class="card-title"><?php echo substr($data[$i]['item_title'], 0, 20) . "..." ?></h5>
               <?php
               }
               ?>
@@ -202,7 +202,7 @@ include "includes/head.php"
           <h5 style="color:  rgb(47,79,79);">Registr User As Of Now 31 June 2021</h5>
 
         </div>
-        <div class="col-sm-4" style="padding-left: 40px; border-bottom-right-radius: 2px;">
+        <div class="col-sm-4" style="padding-left: 20px; border-bottom-right-radius: 2px;">
           <img src="https://assets.pharmeasy.in/web-assets/dist/92c372bb.svg">
           <h1 style="color:  rgb(47,79,79); font-weight: bold;"> 8.8 MILLION </h1>
           <h5 style="color:  rgb(47,79,79);">PharmEasy Order As Of FY21</h5>

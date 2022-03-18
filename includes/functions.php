@@ -253,9 +253,7 @@ function get_cart()
             $data[$i] = query($query);
         }
         return $data;
-    } else {
-        echo 0;
-    }
+    } 
 }
 function delete_from_cart()
 {

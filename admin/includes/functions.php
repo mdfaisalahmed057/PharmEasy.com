@@ -299,7 +299,6 @@ function add_item()
             item_tags ,item_image ,item_quantity ,item_price) VALUES
             ('$name' ,'$brand' ,'$cat' ,'$details' ,'$tags' ,'$image' ,'$quantity' ,'$price')";
             $run = single_query($query);
-            echo $run;
             get_redirect("products.php");
         } else {
             $_SESSION['message'] = "itemErr";

@@ -99,6 +99,7 @@ include "includes/head.php"
         ?>
             <h1 style="text-align: center; font-family: 'Fredoka One', cursive;">No products in the Cart</h1>
             <p style="text-align: center; font-family: 'Fredoka One', cursive;">Please add at least product to Buy</p>
+            <img style="width:46rem; margin-left: 330px;" src="images/nocart.png" alt="">
         <?php
         }
         ?>

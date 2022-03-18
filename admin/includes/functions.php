@@ -31,6 +31,7 @@ function post_redirect($url)
 {
     ob_start();
     header('Location: ' . $url);
+    // header('Location: https://pharmeasy1.000webhostapp.com/admin/' . $url);
     ob_end_flush();
     die();
 }
@@ -39,6 +40,9 @@ function get_redirect($url)
     echo " <script> 
     window.location.href = '$url'; 
     </script>";
+    // echo "<script>
+    // window.location.href = 'https://pharmeasy1.000webhostapp.com/admin/" . $url . "';
+    // </script>";
 }
 // redirect functions (end)
 // messages function (start)
@@ -46,12 +50,17 @@ function message()
 {
     if ($_SESSION['message'] == "loginErr") {
         echo "   <div class='alert alert-danger' role='alert'>
-        The email or the password is incorrect !!!
+        There is no account with this email !!!
       </div>";
         unset($_SESSION['message']);
     } elseif ($_SESSION['message'] == "emailErr") {
         echo "   <div class='alert alert-danger' role='alert'>
         The email address is already taken.  Please choose another
+      </div>";
+        unset($_SESSION['message']);
+    } elseif ($_SESSION['message'] == "loginErr1") {
+        echo "   <div class='alert alert-danger' role='alert'>
+        The email or password is wrong!
       </div>";
         unset($_SESSION['message']);
     } elseif ($_SESSION['message'] == "noResult") {
@@ -103,7 +112,7 @@ function login()
             $_SESSION['admin_id'] = $data[0]['admin_id'];
             post_redirect("index.php");
         } else {
-            $_SESSION['message'] = "loginErr";
+            $_SESSION['message'] = "loginErr1";
             post_redirect("login.php");
         }
     }

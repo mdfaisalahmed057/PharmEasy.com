@@ -1,5 +1,14 @@
-<?php 
+<?php
 session_start();
+include "includes/functions.php";
+if (isset($_SESSION['admin_id'])) {
+    $check_admin = check_admin($_SESSION['admin_id']);
+    if ($check_admin == 0) {
+        post_redirect("logout.php");
+    }
+} else {
+    post_redirect("login.php");
+}
 
 ?>
 <!doctype html>

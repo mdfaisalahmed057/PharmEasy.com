@@ -9,13 +9,11 @@ function post_redirect($url)
     ob_end_flush();
     die();
 }
-session_start();
 function get_redirect($url)
 {
     echo " <script> 
     window.location.href = '" . $url . "'; 
     </script>";
-
     // echo "<script>
     // window.location.href = 'https://pharmeasy1.000webhostapp.com/" . $url . "';
     // </script>";

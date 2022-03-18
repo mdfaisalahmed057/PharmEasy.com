@@ -34,57 +34,7 @@ include "includes/head.php";
                 </div>
             </div>
         </div>
-
-        <div class="table-responsive">
-            <table class="table table-striped table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">ID</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email</th>
-
-                </thead>
-
-                <tbody>
-                    <?php
-                    $data = all_admins();
-                    delete_admin();
-                    if (isset($_GET['search_admin'])) {
-                        $query = search_admin();
-                        if (!empty($query)) {
-                            $data = $query;
-                        } else {
-                            get_redirect("admin.php");
-                        }
-                    }
-                    $num = sizeof($data);
-                    for ($i = 0; $i < $num; $i++) {
-                    ?>
-                        <tr>
-                            <td><?php echo $i ?></td>
-                            <td><?php echo $data[$i]['admin_id'] ?></td>
-                            <td><?php echo $data[$i]['admin_fname'] ?></td>
-                            <td><?php echo $data[$i]['admin_lname'] ?></td>
-                            <td><?php echo $data[$i]['admin_email'] ?></td>
-                            <td>
-                                <button type="button" class="btn pull-left btn-outline-warning"><a style="text-decoration: none; color:black;" href="admin.php?edit=<?php echo $data[$i]['admin_id'] ?>">Edit</a></button>
-                            </td>
-                            <td>
-                                <button type="button" class="btn pull-left btn-outline-danger"><a style="text-decoration: none; color:black;" href="admin.php?delete=<?php echo $data[$i]['admin_id'] ?>">Delete</a></button>
-                            </td>
-                        </tr>
-                    <?php  }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-        <button type="button" class="btn btn-outline-primary "><a style="text-decoration: none; color:black;" href="admin.php?add=1"> &nbsp;&nbsp;Add&nbsp;&nbsp;</a></button>
-        <br><br>
         <?php
-
-
         edit_admin($_SESSION['admin_id']);
         if (isset($_GET['edit'])) {
             $_SESSION['admin_id'] = $_GET['edit'];
@@ -163,6 +113,56 @@ include "includes/head.php";
         }
 
         ?>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">
+                        <th scope="col">
+                            <button type="button" class="btn btn-outline-primary "><a style="text-decoration: none; color:black;" href="admin.php?add=1"> &nbsp;&nbsp;Add&nbsp;&nbsp;</a></button>
+                        </th>
+                        </th>
+
+                </thead>
+
+                <tbody>
+                    <?php
+                    $data = all_admins();
+                    delete_admin();
+                    if (isset($_GET['search_admin'])) {
+                        $query = search_admin();
+                        if (!empty($query)) {
+                            $data = $query;
+                        } else {
+                            get_redirect("admin.php");
+                        }
+                    }
+                    $num = sizeof($data);
+                    for ($i = 0; $i < $num; $i++) {
+                    ?>
+                        <tr>
+                            <td><?php echo $i ?></td>
+                            <td><?php echo $data[$i]['admin_id'] ?></td>
+                            <td><?php echo $data[$i]['admin_fname'] ?></td>
+                            <td><?php echo $data[$i]['admin_lname'] ?></td>
+                            <td><?php echo $data[$i]['admin_email'] ?></td>
+                            <td>
+                                <button type="button" class="btn pull-left btn-outline-warning"><a style="text-decoration: none; color:black;" href="admin.php?edit=<?php echo $data[$i]['admin_id'] ?>">Edit</a></button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn pull-left btn-outline-danger"><a style="text-decoration: none; color:black;" href="admin.php?delete=<?php echo $data[$i]['admin_id'] ?>">Delete</a></button>
+                            </td>
+                        </tr>
+                    <?php  }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </main>
     </div>
     </div>

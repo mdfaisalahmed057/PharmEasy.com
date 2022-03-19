@@ -101,8 +101,8 @@ function login()
 {
     if (isset($_POST['login'])) {
 
-        $adminEmail = $_POST['adminEmail'];
-        $password = $_POST['adminPassword'];
+        $adminEmail = trim($_POST['adminEmail']);
+        $password = trim(strtolower($_POST['adminPassword']));
         $query = "SELECT  admin_email , admin_id , admin_password FROM admin WHERE admin_email= '$adminEmail' ";
         $data = query($query);
         if ($data == 0) {
@@ -137,10 +137,10 @@ function delete_user()
 function edit_user($id)
 {
     if (isset($_POST['update'])) {
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
+        $fname = trim($_POST['fname']);
+        $lname = trim($_POST['lname']);
+        $email = trim(strtolower($_POST['email']));
+        $address = trim($_POST['address']);
         if (empty($email) or empty($address) or empty($fname) or empty($lname)) {
             $_SESSION['message'] = "empty_err";
             get_redirect("customers.php");
@@ -178,7 +178,7 @@ function check_email_user($email)
 function search_user()
 {
     if (isset($_GET['search_user'])) {
-        $email = $_GET['search_user_email'];
+        $email = trim(strtolower($_GET['search_user_email']));
         if (empty($email)) {
             return;
         }
@@ -221,14 +221,14 @@ function delete_item()
 function edit_item($id)
 {
     if (isset($_POST['update'])) {
-        $name = $_POST['name'];
-        $brand = $_POST['brand'];
-        $cat = $_POST['cat'];
-        $tags = $_POST['tags'];
-        $image = $_POST['image'];
-        $quantity = $_POST['quantity'];
-        $price = $_POST['price'];
-        $details = $_POST['details'];
+        $name = trim($_POST['name']);
+        $brand = trim($_POST['brand']);
+        $cat = trim($_POST['cat']);
+        $tags = trim($_POST['tags']);
+        $image = trim($_POST['image']);
+        $quantity = trim($_POST['quantity']);
+        $price = trim($_POST['price']);
+        $details = trim($_POST['details']);
         $check = check_name($name);
         if ($check == 0) {
             $query = "UPDATE item SET item_title='$name' ,item_brand='$brand' ,item_cat='$cat' ,
@@ -263,7 +263,7 @@ function check_name($name)
 function search_item()
 {
     if (isset($_GET['search_item'])) {
-        $name = $_GET['search_item_name'];
+        $name = trim($_GET['search_item_name']);
         $query = "SELECT * FROM item WHERE item_title LIKE '%$name%'";
         $data = query($query);
         if ($data) {
@@ -277,14 +277,14 @@ function search_item()
 function add_item()
 {
     if (isset($_POST['add_item'])) {
-        $name = $_POST['name'];
-        $brand = $_POST['brand'];
-        $cat = $_POST['cat'];
-        $tags = $_POST['tags'];
-        $image = $_POST['image'];
-        $quantity = $_POST['quantity'];
-        $price = $_POST['price'];
-        $details = $_POST['details'];
+        $name = trim($_POST['name']);
+        $brand = trim($_POST['brand']);
+        $cat = trim($_POST['cat']);
+        $tags = trim($_POST['tags']);
+        $image = trim($_POST['image']);
+        $quantity = trim($_POST['quantity']);
+        $price = trim($_POST['price']);
+        $details = trim($_POST['details']);
         $check = check_name($name);
         if (
             empty($name) or empty($brand) or empty($cat)  or
@@ -334,10 +334,10 @@ function get_admin($id)
 function edit_admin($id)
 {
     if (isset($_POST['admin_update'])) {
-        $fname = $_POST['admin_fname'];
-        $lname = $_POST['admin_lname'];
-        $email = $_POST['admin_email'];
-        $password = $_POST['admin_password'];
+        $fname = trim($_POST['admin_fname']);
+        $lname = trim($_POST['admin_lname']);
+        $email = trim(strtolower($_POST['admin_email']));
+        $password = trim($_POST['admin_password']);
         $check = check_email_admin($email);
         if ($check == 0) {
             $query = "UPDATE admin SET admin_email='$email' ,admin_fname='$fname' ,admin_lname='$lname' ,admin_password='$password'  WHERE admin_id= '$id'";
@@ -364,10 +364,10 @@ function check_email_admin($email)
 function add_admin()
 {
     if (isset($_POST['add_admin'])) {
-        $fname = $_POST['admin_fname'];
-        $lname = $_POST['admin_lname'];
-        $email = $_POST['admin_email'];
-        $password = $_POST['admin_password'];
+        $fname = trim($_POST['admin_fname']);
+        $lname = trim($_POST['admin_lname']);
+        $email = trim(strtolower($_POST['admin_email']));
+        $password = trim($_POST['admin_password']);
         $check = check_email_admin($email);
         if ($check == 0) {
             $query = "INSERT INTO admin (admin_fname, admin_lname, admin_email, admin_password) 
@@ -394,7 +394,7 @@ function delete_admin()
 function search_admin()
 {
     if (isset($_GET['search_admin'])) {
-        $email = $_GET['search_admin_email'];
+        $email = trim(strtolower($_GET['search_admin_email']));
         if (empty($email)) {
             return;
         }
@@ -429,7 +429,7 @@ function all_orders()
 function search_order()
 {
     if (isset($_GET['search_order'])) {
-        $id = $_GET['search_order_id'];
+        $id = trim($_GET['search_order_id']);
         if (empty($id)) {
             return;
         }

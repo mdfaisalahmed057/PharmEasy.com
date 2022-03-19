@@ -48,8 +48,8 @@ function login()
 {
     if (isset($_POST['login'])) {
 
-        $userEmail = $_POST['userEmail'];
-        $password = $_POST['password'];
+        $userEmail = trim(strtolower($_POST['userEmail']));
+        $password = trim($_POST['password']);
         if (empty($userEmail) or empty($password)) {
             $_SESSION['message'] = "empty_err";
             post_redirect("login.php");
@@ -72,12 +72,11 @@ function login()
 function singUp()
 {
     if (isset($_POST['singUp'])) {
-        $email  = $_POST['email'];
-        $email = strtolower($email);
-        $fname  = $_POST['Fname'];
-        $lname = $_POST['Lname'];
-        $address = $_POST['address'];
-        $passwd = $_POST['passwd'];
+        $email  = trim(strtolower($_POST['email']));
+        $fname  = trim($_POST['Fname']);
+        $lname = trim($_POST['Lname']);
+        $address = trim($_POST['address']);
+        $passwd = trim($_POST['passwd']);
         if (empty($email) or empty($passwd) or empty($address) or empty($fname) or empty($lname)) {
             $_SESSION['message'] = "empty_err";
             post_redirect("signUp.php");
@@ -253,7 +252,7 @@ function get_cart()
             $data[$i] = query($query);
         }
         return $data;
-    } 
+    }
 }
 function delete_from_cart()
 {

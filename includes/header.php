@@ -23,6 +23,9 @@
                             <li><a class="dropdown-item" href="search.php?cat=machine"> machines</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin/index.php" style="color: white; font-size:bold;">Admin</a>
+                    </li>
                 </ul>
                 <?php
 

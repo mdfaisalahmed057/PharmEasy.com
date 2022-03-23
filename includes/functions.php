@@ -173,7 +173,7 @@ function total_price($data)
     $sum = 0;
     $num = sizeof($data);
     for ($i = 0; $i < $num; $i++) {
-        $sum += $data[$i][0]['item_price'];
+        $sum += $sum += ($data[$i][0]['item_price'] * $_SESSION['cart'][$i]['quantity']);
     }
     return $sum;
 }
